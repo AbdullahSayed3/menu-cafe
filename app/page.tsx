@@ -1,103 +1,92 @@
-import Image from "next/image";
+import { Card, CardContent } from "@/components/ui/card";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
-export default function Home() {
+const menu = [
+  {
+    category: "Fresh Juices",
+    items: [
+      { name: "Fresh Mango", price: 95, image: "/images/mango.jpg" },
+      { name: "Fresh Strawberry", price: 70, image: "/images/strawberry.jpg" },
+      { name: "Fresh Kiwi", price: 95, image: "/images/kiwi.jpg" },
+      { name: "Fresh Orange", price: 70, image: "/images/orange.jpg" },
+      { name: "Fresh Watermelon", price: 75, image: "/images/watermelon.jpg" },
+      { name: "Fresh Cantaloupe", price: 70, image: "/images/cantaloupe.jpg" },
+      { name: "Fresh Cocktail", price: 80, image: "/images/cocktail.jpg" },
+      { name: "Fresh Banana", price: 70, image: "/images/banana.jpg" },
+      { name: "Fresh Avocado", price: 110, image: "/images/avocado.jpg" },
+      { name: "Fresh Lemon Mint", price: 60, image: "/images/lemon_mint.jpg" },
+      { name: "Fresh Guava", price: 70, image: "/images/guava.jpg" },
+      { name: "Fresh Lemon", price: 60, image: "/images/lemon.jpg" },
+      { name: "Fruit Salad", price: 115, image: "/images/fruit_salad.jpg" },
+    ],
+  },
+  {
+    category: "Milkshakes",
+    items: [
+      { name: "Oreo Milkshake", price: 110, image: "/images/oreo_milkshake.jpg" },
+      { name: "Caramel Milkshake", price: 95, image: "/images/caramel_milkshake.jpg" },
+      { name: "Vanilla Milkshake", price: 95, image: "/images/vanilla_milkshake.jpg" },
+      { name: "Lotus Milkshake", price: 110, image: "/images/lotus_milkshake.jpg" },
+      { name: "Chocolate Milkshake", price: 95, image: "/images/chocolate_milkshake.jpg" },
+      { name: "Fruit Milkshake", price: 110, image: "/images/fruit_milkshake.jpg" },
+      { name: "Pistachio Milkshake", price: 110, image: "/images/pistachio_milkshake.jpg" },
+      { name: "Strawberry Milkshake", price: 90, image: "/images/strawberry_milkshake.jpg" },
+      { name: "Kiwi Milkshake", price: 90, image: "/images/kiwi_milkshake.jpg" },
+      { name: "Peach Milkshake", price: 90, image: "/images/peach_milkshake.jpg" },
+      { name: "Blueberry Milkshake", price: 90, image: "/images/blueberry_milkshake.jpg" },
+      { name: "Raspberry Milkshake", price: 90, image: "/images/raspberry_milkshake.jpg" },
+      { name: "Mango Milkshake", price: 90, image: "/images/mango_milkshake.jpg" },
+    ],
+  },
+  {
+    category: "Hot Drinks",
+    items: [
+      { name: "Red Tea", price: 35, image: "/images/red_tea.jpg" },
+      { name: "Green Tea", price: 40, image: "/images/green_tea.jpg" },
+      { name: "Flavored Tea", price: 50, image: "/images/flavored_tea.jpg" },
+      { name: "Tea with Milk", price: 60, image: "/images/tea_milk.jpg" },
+      { name: "Hot Cider", price: 60, image: "/images/hot_cider.jpg" },
+      { name: "Turkish Coffee Single", price: 45, image: "/images/turkish_coffee.jpg" },
+      { name: "Turkish Coffee Double", price: 55, image: "/images/turkish_coffee_double.jpg" },
+      { name: "French Coffee", price: 65, image: "/images/french_coffee.jpg" },
+      { name: "Hazelnut Coffee", price: 65, image: "/images/hazelnut_coffee.jpg" },
+      { name: "Espresso Single", price: 50, image: "/images/espresso.jpg" },
+      { name: "Espresso Double", price: 60, image: "/images/espresso_double.jpg" },
+      { name: "Hot Chocolate", price: 70, image: "/images/hot_chocolate.jpg" },
+      { name: "Caramel Macchiato", price: 70, image: "/images/caramel_macchiato.jpg" },
+    ],
+  },
+];
+
+export default function DollarCafeMenu() {
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    <div className="max-w-5xl mx-auto p-4">
+      <h1 className="text-3xl font-bold text-center mb-6">Dollar Cafe Menu</h1>
+      <Tabs defaultValue={menu[0].category} className="w-full">
+        <TabsList className="flex flex-wrap gap-2">
+          {menu.map((section) => (
+            <TabsTrigger key={section.category} value={section.category}>
+              {section.category}
+            </TabsTrigger>
+          ))}
+        </TabsList>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+        {menu.map((section) => (
+          <TabsContent key={section.category} value={section.category}>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-4">
+              {section.items.map((item) => (
+                <Card key={item.name} className="flex flex-col items-center p-4 space-y-2 shadow-md">
+                  <img src={item.image} alt={item.name} className="w-32 h-32 object-cover rounded-full" />
+                  <CardContent className="text-center">
+                    <h3 className="text-lg font-semibold">{item.name}</h3>
+                    <p className="text-gray-600">{item.price} EGP</p>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </TabsContent>
+        ))}
+      </Tabs>
     </div>
   );
 }
