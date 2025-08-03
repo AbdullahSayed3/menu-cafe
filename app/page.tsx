@@ -30,7 +30,7 @@ export default function Home() {
         className="bg-[#dbb166] hover:bg-[#caa850] text-[#102c20] px-10 py-4 rounded-full text-lg font-semibold transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-[#dbb166] focus:ring-opacity-50"
         aria-label="View our menu"
       >
-        المنيو / Menu
+        Menu
       </Link>
     </div>
   );

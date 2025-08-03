@@ -6,10 +6,10 @@ const menu:MenuCategory[] = [
     category: { ar: "ميلك شيك", en: "Milkshake" },
     items: [
       { name: { ar: "ميلك شيك أوريو", en: "Oreo Milkshake" }, price: 95, image: "/images/oreo_milkshake.png", description: "Milkshake with Oreo cookies" },
-      { name: { ar: "ميلك شيك كراميل", en: "Caramel Milkshake" }, price: 70, image: "/images/caramel_milkshake.png" },
+      { name: { ar: "ميلك شيك كراميل", en: "Caramel Milkshake" }, price: 70, image: "/images/caramel_milkshake.jpg" },
       { name: { ar: "ميلك شيك فانيلا", en: "Vanilla Milkshake" }, price: 70, image: "/images/vanilla_milkshake.png" },
-      { name: { ar: "ميلك شيك لوتس", en: "Lotus Milkshake" }, price: 75, image: "/images/lotus_milkshake.jpg", description: "Creamy milkshake with Lotus biscuit spread" },
-      { name: { ar: "ميلك شيك شركات", en: "Companies Milkshake" }, price: 70, image: "/images/companies_milkshake.jpg" },
+      { name: { ar: "ميلك شيك لوتس", en: "Lotus Milkshake" }, price: 75, image: "/images/lotus_milkshake.webp", description: "Creamy milkshake with Lotus biscuit spread" },
+      { name: { ar: "ميلك شيك شوكلت", en: "Chocolate Milkshake" }, price: 70, image: "/images/chocolate_milkshake.jpg",description: "Milkshake with rich chocolate flavor" },
       { name: { ar: "ميلك شيك فواكه", en: "Fruit Milkshake" }, price: 80, image: "/images/fruit_milkshake.jpg" },
       { name: { ar: "ميلك شيك فستق", en: "Pistachio Milkshake" }, price: 70, image: "/images/pistachio_milkshake.jpg" },
       { name: { ar: "ميلك شيك فراولة", en: "Strawberry Milkshake" }, price: 70, image: "/images/strawberry_milkshake.jpg" },
