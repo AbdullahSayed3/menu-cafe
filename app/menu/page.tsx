@@ -46,7 +46,7 @@ export default function MenuPage() {
               {section.items.map((item) => (
                 <Card
                   key={item.name.en}
-                  className="flex flex-col items-center p-4 rounded-xl border border-[#6d6f76] shadow-sm hover:shadow-md hover:scale-[1.02] transition-all duration-300 bg-[#b1b0b5]"
+                  className="flex flex-col items-center p-4 rounded-xl border border-[#6d6f76] shadow-sm hover:shadow-md hover:scale-[1.02] transition-all duration-300 bg-[#F3FFC6]"
                 >
                   <Image
                     src={item.image.startsWith("/") ? item.image : `/${item.image}`}
