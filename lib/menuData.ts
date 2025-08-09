@@ -6,7 +6,7 @@ const menu:MenuCategory[] = [
     category: { ar: "ميلك شيك", en: "Milkshake" },
     items: [
       { name: { ar: "ميلك شيك أوريو", en: "Oreo Milkshake" }, price: 100, image: "/images/oreo_milkshake.png", description: "Milkshake with Oreo cookies" },
-      { name: { ar: "ميلك شيك كراميل", en: "Caramel Milkshake" }, price: 100, image: "/images/caramel_milkshake.jpg" },
+      { name: { ar: "ميلك شيك كراميل", en: "Caramel Milkshake" }, price: 100, image: "/images/caramel_milkshake.png" },
       { name: { ar: "ميلك شيك فانيلا", en: "Vanilla Milkshake" }, price: 90, image: "/images/vanilla_milkshake.png" },
       { name: { ar: "ميلك شيك لوتس", en: "Lotus Milkshake" }, price: 110, image: "/images/lotus_milkshake.png", description: "Creamy milkshake with Lotus biscuit spread" },
       { name: { ar: "ميلك شيك شوكلت", en: "Chocolate Milkshake" }, price: 100, image: "/images/chocolate_milkshake.png",description: "Milkshake with rich chocolate flavor" },
