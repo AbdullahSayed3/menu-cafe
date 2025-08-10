@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
-import { Lora } from "next/font/google";
+import { Playfair_Display } from "next/font/google";
 import "./globals.css";
 
-// Loading Lora font for a café aesthetic
-const cafeFont = Lora({
+// Loading Playfair_Display font
+const cafeFont = Playfair_Display({
   variable: "--font-cafe",
   subsets: ["latin"],
   weight: ["400", "700"],
