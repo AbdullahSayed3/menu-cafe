@@ -46,8 +46,8 @@
   --radius: 0.625rem;
   --background: #fbfbfa; /* Light white-gray from logo palette for background */
   --foreground: #4e4e58; /* Dark gray text from logo */
-  --card: #a5a4a9; /* Slightly darker gray for cards to differentiate from background */
-  --card-foreground: #153243; /* Dark blue from additional palette for card text */
+  --card: #a2a1a6; /* Updated: Soft gray for cards to harmonize with palette */
+  --card-foreground: #153243; /* Dark blue for card text */
   --popover: #a5a4a9;
   --popover-foreground: #153243;
   --primary: #912F40; /* Dark red from additional palette for primary */
@@ -80,8 +80,8 @@
 [data-theme="dark"] {
   --background: #153243; /* Dark blue from additional for dark background */
   --foreground: #fbfbfa; /* Light white-gray text */
-  --card: #284B63; /* Slightly lighter blue-gray for cards */
-  --card-foreground: #fbfbfa;
+  --card: #4e4e58; /* Updated: Darker gray for cards to harmonize with palette */
+  --card-foreground: #fbfbfa; /* Light white-gray for card text */
   --popover: #284B63;
   --popover-foreground: #fbfbfa;
   --primary: #a1f907; /* Green from logo for primary in dark */

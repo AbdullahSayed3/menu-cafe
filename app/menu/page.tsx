@@ -1,35 +1,39 @@
 'use client';
+
 import { Card, CardContent } from "@/components/ui/card";
-import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import menu from "@/lib/menuData";
 import Image from "next/image";
+import { Playfair_Display } from "next/font/google";
 import ThemeToggle from "@/components/theme-provider";
+
+const cafeFont = Playfair_Display({ subsets: ["latin"], weight: ["400", "700"] });
 
 export default function MenuPage() {
   return (
-    <div className="max-w-7xl mx-auto px-4 py-6 bg-background min-h-screen font-cafe">
+    <div className={`max-w-7xl mx-auto px-4 py-6 bg-[#27252d] min-h-screen ${cafeFont.className}`}>
       <ThemeToggle />
       <Tabs defaultValue={menu[0].category.en} className="w-full">
         {/* Sticky Header & Tabs */}
-        <div className="sticky top-0 z-50 bg-background pt-4 pb-2">
+        <div className="sticky top-0 z-50 bg-[#27252d] pt-4 pb-2">
           <div className="flex items-center gap-3 mb-2">
             <Image
               src="/images/cover.jpg"
               alt="Dollar Cafe Logo"
               width={50}
               height={50}
-              className="object-cover rounded-md border border-accent"
+              className="object-cover rounded-md border border-[#cb2663]"
               priority
             />
-            <h1 className="text-2xl font-bold text-foreground">Dollar Café</h1>
+            <h1 className="text-2xl font-bold text-white">Dollar Café</h1>
           </div>
           <div className="overflow-x-auto no-scrollbar pb-1">
-            <TabsList className="min-w-max inline-flex gap-2 bg-muted p-2 rounded-lg w-full border-b-2 border-accent">
+            <TabsList className="min-w-max inline-flex gap-2 bg-[#6d6f76] p-2 rounded-lg w-full border-b-2 border-[#cb2663]">
               {menu.map((section) => (
                 <TabsTrigger
                   key={section.category.en}
                   value={section.category.en}
-                  className="px-4 py-2 text-sm whitespace-nowrap rounded-md text-foreground font-semibold transition-colors duration-200 bg-transparent hover:bg-accent hover:text-accent-foreground data-[state=active]:bg-accent data-[state=active]:text-accent-foreground"
+                  className="px-4 py-2 text-sm whitespace-nowrap rounded-md text-white font-semibold transition-colors duration-200 bg-transparent hover:bg-[#cb2663] hover:text-white data-[state=active]:bg-[#cb2663] data-[state=active]:text-white"
                 >
                   {section.category.ar} / {section.category.en}
                 </TabsTrigger>
