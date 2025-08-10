@@ -1,35 +1,35 @@
 'use client';
 import { Card, CardContent } from "@/components/ui/card";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import menu from "@/lib/menuData";
 import Image from "next/image";
-import { Playfair_Display } from "next/font/google";
-const cafeFont = Playfair_Display({ subsets: ["latin"], weight: ["400", "700"] });
+import ThemeToggle from "@/components/theme-provider";
 
 export default function MenuPage() {
   return (
-    <div className={`max-w-7xl mx-auto px-4 py-6 bg-[#27252d] min-h-screen ${cafeFont.className}`}>
+    <div className="max-w-7xl mx-auto px-4 py-6 bg-background min-h-screen font-cafe">
+      <ThemeToggle />
       <Tabs defaultValue={menu[0].category.en} className="w-full">
         {/* Sticky Header & Tabs */}
-        <div className="sticky top-0 z-50 bg-[#27252d] pt-4 pb-2">
+        <div className="sticky top-0 z-50 bg-background pt-4 pb-2">
           <div className="flex items-center gap-3 mb-2">
             <Image
               src="/images/cover.jpg"
               alt="Dollar Cafe Logo"
               width={50}
               height={50}
-              className="object-cover rounded-md border border-[#912F40]"
+              className="object-cover rounded-md border border-accent"
               priority
             />
-            <h1 className="text-2xl font-bold text-white">Dollar Café</h1>
+            <h1 className="text-2xl font-bold text-foreground">Dollar Café</h1>
           </div>
           <div className="overflow-x-auto no-scrollbar pb-1">
-            <TabsList className="min-w-max inline-flex gap-2 bg-[#702632] p-2 rounded-lg w-full border-b-2 border-[#912F40]">
+            <TabsList className="min-w-max inline-flex gap-2 bg-muted p-2 rounded-lg w-full border-b-2 border-accent">
               {menu.map((section) => (
                 <TabsTrigger
                   key={section.category.en}
                   value={section.category.en}
-                  className="px-4 py-2 text-sm whitespace-nowrap rounded-md text-white font-semibold transition-colors duration-200 bg-transparent hover:bg-[#912F40] hover:text-white data-[state=active]:bg-[#912F40] data-[state=active]:text-white"
+                  className="px-4 py-2 text-sm whitespace-nowrap rounded-md text-foreground font-semibold transition-colors duration-200 bg-transparent hover:bg-accent hover:text-accent-foreground data-[state=active]:bg-accent data-[state=active]:text-accent-foreground"
                 >
                   {section.category.ar} / {section.category.en}
                 </TabsTrigger>
@@ -42,26 +42,26 @@ export default function MenuPage() {
           <TabsContent key={section.category.en} value={section.category.en} className="mt-4">
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 pt-2">
               {section.items.map((item) => (
-                <Card
+              <Card
                   key={item.name.en}
-                  className="flex flex-col items-center p-4 rounded-xl border border-[#284B63] shadow-lg hover:shadow-xl hover:scale-[1.02] transition-all duration-300 bg-[#284B63]"
+                  className="flex flex-col items-center p-4 rounded-xl border border-[#ffffff20] shadow-lg hover:shadow-xl hover:scale-[1.02] transition-all duration-300 bg-card"
                 >
                   <Image
                     src={item.image.startsWith("/") ? item.image : `/${item.image}`}
                     alt={`${item.name.en} - ${item.name.ar}`}
                     width={130}
                     height={130}
-                    className="w-32 h-32 object-cover rounded-3xl border border-[#912F40]/20 shadow-[0_4px_14px_rgba(0,0,0,0.15)] mb-2 transition-all duration-300"
+                    className="w-32 h-32 object-cover rounded-3xl border border-[#cb2663]/20 shadow-[0_4px_14px_rgba(0,0,0,0.15)] mb-2 transition-all duration-300"
                   />
                   <CardContent className="text-center p-0 pt-1 w-full space-y-1">
-                    <h3 className="text-sm font-bold text-white leading-snug tracking-wide">
+                    <h3 className="text-sm font-bold text-card-foreground leading-snug tracking-wide">
                       {item.name.ar} / {item.name.en}
                     </h3>
                     {item.price && (
-                      <p className="text-[#912F40] font-extrabold text-sm">{item.price} EGP</p>
+                      <p className="text-[#cb2663] font-extrabold text-sm">{item.price} EGP</p>
                     )}
                     {item.description && (
-                      <p className="text-[12px] text-[#702632] leading-tight italic">
+                      <p className="text-[12px] text-muted-foreground leading-tight italic">
                         {item.description}
                       </p>
                     )}
