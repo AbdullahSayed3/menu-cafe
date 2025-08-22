@@ -97,11 +97,14 @@ const menu:MenuCategory[] = [
     { name: { ar: "اكسترا بندق", en: "Hazelnut Extra" }, price: 25, image: "/images/pine_nut_extra.jpg" },
     { name: { ar: "اكسترا شوكولاتة", en: "Chocolate Extra" }, price: 25, image: "/images/companies_extra.jpg" },
     { name: { ar: "اكسترا عسل", en: "Honey Extra" }, price: 20, image: "/images/special_extra.jpg" },
-    { name: { ar: "اكسترا لبن", en: "Milk Extra" }, price: 20, image: "/images/light_extra.jpg" },
+    { name: { ar: "اكسترا لبن", en: "Milk Extra" }, price: 25, image: "/images/light_extra.jpg" },
     { name: { ar: "شاي", en: "Tea Extra" }, price: 15, image: "/images/tea_extra.jpg" },
     { name: { ar: "توينج", en: "Twinge" }, price: 25, image: "/images/twinge.jpg" },
-    { name: { ar: "شوت إسبريسو", en: "Espresso Shot" }, price: 30, image: "/images/espresso_shot.jpg" },
-    { name: { ar: "فواكه", en: "Fruit" }, price: 30, image: "/images/fruit_mix.jpg" },
+    { name: { ar: "شوت إسبريسو", en: "Espresso Shot" }, price: 20, image: "/images/espresso_shot.jpg" },
+    { name: { ar: "فواكه", en: "Fruit" }, price: 35, image: "/images/fruit_mix.jpg" },
+    
+    { name: { ar: "فواكه", en: "Fruit" }, price: 35, image: "/images/fruit_mix.jpg" },
+    { name: { ar: "فواكه", en: "Fruit" }, price: 35, image: "/images/fruit_mix.jpg" },
   ],
 },
   {
@@ -166,11 +169,13 @@ const menu:MenuCategory[] = [
     { name: { ar: "سيفن أب", en: "7 Up" }, price: 50, image: "/images/7up.jpg" },           
     { name: { ar: "V كولا", en: "V Cola" }, price: 50, image: "/images/v_cola.jpg" },       
     { name: { ar: "فيوري", en: "Fury" }, price: 50, image: "/images/fury.jpg" },           
-    { name: { ar: "فيروز", en: "Fayrouz" }, price: 60, image: "/images/fayrouz.jpg" },
+    { name: { ar: "فيروز", en: "Fayrouz" }, price: 50, image: "/images/fayrouz.jpg" },
+    { name: { ar: "سبيرو سباتس", en: "Spiro Spathis" }, price: 35, image: "/images/spiro-spathis.jpg" },
     { name: { ar: "شويبس", en: "Schweppes" }, price: 50, image: "/images/schweppes.jpg" },
     { name: { ar: "تويست", en: "Twist" }, price: 50, image: "/images/twist.jpg" },   
     { name: { ar: "بيريل", en: "Birell" }, price: 55, image: "/images/birell.jpg" },
-    { name: { ar: "ريد بول", en: "Red Bull" }, price: 90, image: "/images/red_bull.jpg" },
+    { name: { ar: "ريد بول", en: "Red Bull" }, price: 85, image: "/images/red_bull.jpg" },
+    { name: { ar: "شيري كولا", en: "Cherry Cola" }, price: 85, image: "/images/cherry_cola.jpg" },
     { name: { ar: "مياه", en: "Water" }, price: 15, image: "/images/water.jpg" },
   ],
 },
@@ -194,20 +199,27 @@ const menu:MenuCategory[] = [
 },
 {
   category: { ar: "صن شاين", en: "Sunshine Drinks" },
-  items: [
-    { name: { ar: "صن شاين رمان", en: "Pomegranate Sunshine" }, price: 85, image: "/images/pomegranate_sunshine.jpg" },
-    { name: { ar: "صن شاين بلوبري", en: "Blueberry Sunshine" }, price: 85, image: "/images/blueberry_sunshine.jpg" },
-    { name: { ar: "صن شاين نعناع", en: "Mint Sunshine" }, price: 85, image: "/images/mint_sunshine.jpg" },
-    { name: { ar: "صن شاين راسبيري", en: "Raspberry Sunshine" }, price: 85, image: "/images/raspberry_sunshine.jpg" }, 
-    { name: { ar: "صن شاين كلاسيك", en: "Classic Sunshine" }, price: 75, image: "/images/classic_sunshine.jpg" },
-    { name: { ar: "صن شاين كيوي", en: "Kiwi Sunshine" }, price: 85, image: "/images/kiwi_sunshine.jpg" },
-    { name: { ar: "صن شاين فراولة", en: "Strawberry Sunshine" }, price: 85, image: "/images/strawberry_sunshine.jpg" },
-    { name: { ar: "صن شاين مانجو", en: "Mango Sunshine" }, price: 85, image: "/images/mango_sunshine.jpg" },
-    { name: { ar: "صن شاين ميكس", en: "Mix Sunshine" }, price: 90, image: "/images/mix_sunshine.jpg" },
-    { name: { ar: "صن شاين أناناس", en: "Pineapple Sunshine" }, price: 85, image: "/images/pineapple_sunshine.jpg" }, 
-    { name: { ar: "صن شاين بطيخ", en: "Watermelon Sunshine" }, price: 85, image: "/images/watermelon_sunshine.jpg" },
-    { name: { ar: "صن شاين خوخ", en: "Peach Sunshine" }, price: 85, image: "/images/peach_sunshine.jpg" },
-    { name: { ar: "صن شاين باشون", en: "Passion Sunshine" }, price: 85, image: "/images/passion_sunshine.jpg" }],
+  items: [// Classic
+{ name: { ar: "صن شاين كلاسيك", en: "Classic Sunshine" }, price: 80, image: "/images/classic_sunshine.jpg" },
+
+// Fruits
+{ name: { ar: "صن شاين خوخ", en: "Peach Sunshine" }, price: 75, image: "/images/peach_sunshine.jpg" },
+{ name: { ar: "صن شاين رمان", en: "Pomegranate Sunshine" }, price: 85, image: "/images/pomegranate_sunshine.jpg" },
+{ name: { ar: "صن شاين بلوبري", en: "Blueberry Sunshine" }, price: 85, image: "/images/blueberry_sunshine.jpg" },
+{ name: { ar: "صن شاين نعناع", en: "Mint Sunshine" }, price: 85, image: "/images/mint_sunshine.jpg" },
+{ name: { ar: "صن شاين ليمون", en: "Lemon Sunshine" }, price: 85, image: "/images/lemon_sunshine.jpg" },
+{ name: { ar: "صن شاين كيوي", en: "Kiwi Sunshine" }, price: 85, image: "/images/kiwi_sunshine.jpg" },
+{ name: { ar: "صن شاين فراولة", en: "Strawberry Sunshine" }, price: 85, image: "/images/strawberry_sunshine.jpg" },
+{ name: { ar: "صن شاين مانجو", en: "Mango Sunshine" }, price: 85, image: "/images/mango_sunshine.jpg" },
+{ name: { ar: "صن شاين أناناس", en: "Pineapple Sunshine" }, price: 85, image: "/images/pineapple_sunshine.jpg" },
+{ name: { ar: "صن شاين بطيخ", en: "Watermelon Sunshine" }, price: 85, image: "/images/watermelon_sunshine.jpg" },
+{ name: { ar: "صن شاين راسبيري", en: "Raspberry Sunshine" }, price: 85, image: "/images/raspberry_sunshine.jpg" },
+{ name: { ar: "صن شاين باشون فروت", en: "Passion Fruit Sunshine" }, price: 90, image: "/images/passion_sunshine.jpg" },
+
+// Others
+{ name: { ar: "صن شاين فانيليا", en: "Vanilla Sunshine" }, price: 85, image: "/images/vanilla_sunshine.jpg" },
+{ name: { ar: "صن شاين ميكس", en: "Mix Sunshine" }, price: 90, image: "/images/mix_sunshine.jpg" },
+],
   },
 {
   category: { ar: "فرابيه", en: "Frappes" },
@@ -230,10 +242,13 @@ const menu:MenuCategory[] = [
   ],
 },
 {
-  category: { ar: "شيشة", en: "Hookah" },
+  category: { ar: "شيشة", en: "Shisha" },
   items: [
-    { name: { ar: "خلطة نكهات", en: "Mix Flavors" }, price: 140, image: "/images/hookah_mix.jpg" },
-    { name: { ar: "معسل", en: "Molasses" }, price: 40, image: "/images/hookah_molasses.jpg" },
+    { name: { ar: "شيشة ميكس", en: "Shisha mix" }, price: 140, image: "/images/shisha_mix.jpg" },
+    { name: { ar: "معسل", en: "Molasses" }, price: 40, image: "/images/shisha_molasses.jpg" },
+    { name: { ar: "لي", en: "Shisha Hose" }, price: 25, image: "/images/shisha_hose.jpg" },
+    { name: { ar: "غيار ميكس", en: "Mix Refill" }, price: 100, image: "/images/shisha_hose.jpg" },
+    { name: { ar: "غيار معسل", en: "Molasses Refill" }, price: 35, image: "/images/shisha_hose.jpg" },
   ],
 }
 
