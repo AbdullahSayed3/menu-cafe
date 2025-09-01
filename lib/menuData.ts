@@ -185,7 +185,7 @@ const menu:MenuCategory[] = [
     { name: { ar: "شويبس", en: "Schweppes" }, price: 50, image: "/images/schweppes.jpg" },
     { name: { ar: "تويست", en: "Twist" }, price: 50, image: "/images/twist.jpg" },   
     { name: { ar: "بيريل", en: "Birell" }, price: 55, image: "/images/birell.jpg" },
-    { name: { ar: "ريد بول", en: "Red Bull" }, price: 85, image: "/images/red_bull.jpg" },
+    { name: { ar: "ريد بول", en: "Red Bull" }, price: 100, image: "/images/red_bull.jpg" },
     { name: { ar: "شيري كولا", en: "Cherry Cola" }, price: 85, image: "/images/cherry_cola.jpg" },
     { name: { ar: "مياه", en: "Water" }, price: 15, image: "/images/water.jpg" },
   ],
