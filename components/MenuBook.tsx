@@ -30,6 +30,7 @@ export default function MenuBook() {
         maxShadowOpacity={0.3}
         showCover={true}
         className="shadow-2xl page-flip-shadow"
+  {...({} as any)} 
       >
         {/* Cover Page */}
         <div className="bg-gradient-to-br from-card to-muted flex flex-col justify-center items-center text-center p-8 relative overflow-hidden border border-border/20">
@@ -182,4 +183,4 @@ export default function MenuBook() {
       </HTMLFlipBook>
     </div>
   );
-}
+} 
