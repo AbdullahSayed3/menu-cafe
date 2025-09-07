@@ -1,33 +1,68 @@
 'use client';
-import { useEffect, useState } from 'react';
+
+import { useState, useEffect } from 'react';
+import { Sun, Moon, Coffee } from 'lucide-react';
 
 export default function ThemeToggle() {
-  const [theme, setTheme] = useState('light');
+  const [isDark, setIsDark] = useState(false);
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    // Load saved theme from localStorage on mount
-    const savedTheme = localStorage.getItem('theme') || 'light';
-    document.documentElement.setAttribute('data-theme', savedTheme);
-    setTheme(savedTheme);
+    setMounted(true);
+    const saved = localStorage.getItem('theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const shouldBeDark = saved === 'dark' || (!saved && prefersDark);
+    
+    setIsDark(shouldBeDark);
+    document.documentElement.setAttribute('data-theme', shouldBeDark ? 'dark' : 'light');
   }, []);
 
   const toggleTheme = () => {
-    const newTheme = theme === 'dark' ? 'light' : 'dark';
-    document.documentElement.setAttribute('data-theme', newTheme);
-    localStorage.setItem('theme', newTheme);
-    setTheme(newTheme);
+    const newTheme = !isDark;
+    setIsDark(newTheme);
+    document.documentElement.setAttribute('data-theme', newTheme ? 'dark' : 'light');
+    localStorage.setItem('theme', newTheme ? 'dark' : 'light');
   };
+
+  if (!mounted) {
+    return (
+      <div className="w-14 h-8 bg-muted rounded-full animate-pulse"></div>
+    );
+  }
 
   return (
     <button
-      id="theme-toggle"
       onClick={toggleTheme}
-      className="fixed top-4 right-4 bg-primary text-primary-foreground px-4 py-2 rounded-md text-sm font-semibold hover:bg-primary/90 transition-all duration-200 z-60 flex items-center gap-2"
+      className="relative inline-flex items-center w-14 h-8 bg-gradient-to-r from-primary/20 to-accent/20 rounded-full border-2 border-primary/30 transition-all duration-500 hover:scale-105 focus:outline-none focus:ring-4 focus:ring-primary/20"
+      aria-label={`Switch to ${isDark ? 'light' : 'dark'} mode`}
     >
-      <span className={`text-[1.2em] ${theme === 'light' ? 'filter invert brightness-0' : 'filter grayscale brightness-0'}`}>
-        {theme === 'light' ? '☀️' : '🌙'}
-      </span>
-      {theme === 'light' ?  'Light': 'Dark'}
+      {/* Track */}
+      <div className="absolute inset-1 bg-gradient-to-r from-background to-card rounded-full"></div>
+      
+      {/* Slider */}
+      <div
+        className={`relative z-10 flex items-center justify-center w-6 h-6 rounded-full bg-gradient-to-r from-primary to-accent shadow-lg transform transition-all duration-500 ${
+          isDark ? 'translate-x-6' : 'translate-x-1'
+        }`}
+      >
+        {isDark ? (
+          <Moon className="w-3 h-3 text-white" />
+        ) : (
+          <Sun className="w-3 h-3 text-white" />
+        )}
+      </div>
+      
+      {/* Background Icons */}
+      <Coffee 
+        className={`absolute left-2 w-3 h-3 text-primary/60 transition-opacity duration-300 ${
+          isDark ? 'opacity-30' : 'opacity-60'
+        }`} 
+      />
+      <Moon 
+        className={`absolute right-2 w-3 h-3 text-accent/60 transition-opacity duration-300 ${
+          isDark ? 'opacity-60' : 'opacity-30'
+        }`} 
+      />
     </button>
   );
-}
+} 

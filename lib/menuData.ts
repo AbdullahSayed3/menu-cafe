@@ -1,24 +1,22 @@
 import { MenuCategory } from "./types";
 
-
-const menu:MenuCategory[] = [
+const menu: MenuCategory[] = [
   {
-    category: { ar: "ميلك شيك", en: "Milkshake" },
+    category: { ar: "ميلك شيك", en: "Milkshakes" },
     items: [
-      { name: { ar: "ميلك شيك أوريو", en: "Oreo Milkshake" }, price: 95, image: "/images/oreo_milkshake.png", description: "Milkshake with Oreo cookies" },
+      { name: { ar: "ميلك شيك أوريو", en: "Oreo Milkshake" }, price: 95, image: "/images/oreo_milkshake.png", description: "كريمي مع قطع الأوريو المقرمشة" },
       { name: { ar: "ميلك شيك كراميل", en: "Caramel Milkshake" }, price: 95, image: "/images/caramel_milkshake.png" },
       { name: { ar: "ميلك شيك فانيلا", en: "Vanilla Milkshake" }, price: 95, image: "/images/vanilla_milkshake.png" },
-      { name: { ar: "ميلك شيك لوتس", en: "Lotus Milkshake" }, price: 110, image: "/images/lotus_milkshake.png", description: "Creamy milkshake with Lotus biscuit spread" },
-      { name: { ar: "ميلك شيك شوكلت", en: "Chocolate Milkshake" }, price: 95, image: "/images/chocolate_milkshake.png",description: "Milkshake with rich chocolate flavor" },
+      { name: { ar: "ميلك شيك لوتس", en: "Lotus Milkshake" }, price: 110, image: "/images/lotus_milkshake.png", description: "كريمي مع كريمة اللوتس الشهيرة" },
+      { name: { ar: "ميلك شيك شوكولاتة", en: "Chocolate Milkshake" }, price: 95, image: "/images/chocolate_milkshake.png", description: "بنكهة الشوكولاتة الغنية" },
       { name: { ar: "ميلك شيك فواكه", en: "Fruit Milkshake" }, price: 110, image: "/images/fruit_milkshake.png" },
       { name: { ar: "ميلك شيك فستق", en: "Pistachio Milkshake" }, price: 110, image: "/images/pistachio_milkshake.png" },
       { name: { ar: "ميلك شيك فراولة", en: "Strawberry Milkshake" }, price: 95, image: "/images/strawberry_milkshake.png" },
       { name: { ar: "ميلك شيك كيوي", en: "Kiwi Milkshake" }, price: 95, image: "/images/kiwi_milkshake.png" },
       { name: { ar: "ميلك شيك خوخ", en: "Peach Milkshake" }, price: 95, image: "/images/peach_milkshake.png" },
-      { name: { ar: "ميلك شيك تين", en: "Prickly pear Milkshake" }, price: 80, image: "/images/prickly_pear_milkshake.png" },
+      { name: { ar: "ميلك شيك تين شوكي", en: "Prickly Pear Milkshake" }, price: 80, image: "/images/prickly_pear_milkshake.png" },
       { name: { ar: "ميلك شيك بلوبيري", en: "Blueberry Milkshake" }, price: 100, image: "/images/blueberry_milkshake.png" },
       { name: { ar: "ميلك شيك راسبيري", en: "Raspberry Milkshake" }, price: 100, image: "/images/raspberry_milkshake.png" },
-      { name: { ar: "ميلك شيك بيستاشيو", en: "Pistachio Milkshake" }, price: 110, image: "/images/pistachio_milkshake.png" },
       { name: { ar: "ميلك شيك مانجو", en: "Mango Milkshake" }, price: 95, image: "/images/mango_milkshake.png" },
     ],
   },
@@ -37,58 +35,57 @@ const menu:MenuCategory[] = [
       { name: { ar: "فريش ليمون نعناع", en: "Fresh Lemon Mint" }, price: 70, image: "/images/Fresh/fresh_lemon_mint.png" },
       { name: { ar: "فريش ليمون", en: "Fresh Lemon" }, price: 70, image: "/images/Fresh/fresh_lemon.png" },
       { name: { ar: "فريش جوافة", en: "Fresh Guava" }, price: 70, image: "/images/Fresh/fresh_guava.png" },
-      { name: { ar: "فريش تين", en: "Fresh Prickly Pear" }, price: 60, image: "/images/Fresh/fresh_prickly_pear.png",description:"ملحوظة : تين شوكي" },
-      { name: { ar: "فريش دولار", en: "Fresh Dollar" }, price: 130, image: "/images/Fresh/fresh_dollar.png" },
+      { name: { ar: "فريش تين شوكي", en: "Fresh Prickly Pear" }, price: 60, image: "/images/Fresh/fresh_prickly_pear.png" },
+      { name: { ar: "فريش دولار", en: "Fresh Dollar" }, price: 130, image: "/images/Fresh/fresh_dollar.png", description: "خلطة خاصة من الفواكه المنتقاة" },
       { name: { ar: "فريش ميكس", en: "Fresh Mix" }, price: 95, image: "/images/Fresh/fresh_mix.png" },
       { name: { ar: "سلطة فواكه", en: "Fruit Salad" }, price: 120, image: "/images/Fresh/fruit_salad.png" },
     ],
   },
   {
-    category: { ar: "اسموزي", en: "Smoothies" },
+    category: { ar: "سموذي", en: "Smoothies" },
     items: [
-      { name: { ar: "اسموزي خوخ", en: "Peach Smoothie" }, price: 80, image: "/images/peach_smoothie.jpg" },
-      { name: { ar: "اسموزي راسبيري", en: "Raspberry Smoothie" }, price: 80, image: "/images/raspberry_smoothie.jpg" },
-      { name: { ar: "اسموزي باشون", en: "Passion Smoothie" }, price: 80, image: "/images/passion_smoothie.jpg" },
-      { name: { ar: "اسموزي ليمون نعناع", en: "Lemon Mint Smoothie" }, price: 60, image: "/images/lemon_mint_smoothie.jpg" },
-      { name: { ar: "اسموزي كيوي", en: "Kiwi Smoothie" }, price: 80, image: "/images/kiwi_smoothie.jpg" },
-      { name: { ar: "اسموزي مانجو", en: "Mango Smoothie" }, price: 90, image: "/images/mango_smoothie.jpg" },
-      { name: { ar: "اسموزي فراولة", en: "Strawberry Smoothie" }, price: 80, image: "/images/strawberry_smoothie.jpg" },
-      { name: { ar: "اسموزي بطيخ", en: "Watermelon Smoothie" }, price: 85, image: "/images/watermelon_smoothie.jpg" },
-      { name: { ar: "اسموزي ريد بيري", en: "Red Berry Smoothie" }, price: 80, image: "/images/red_berry_smoothie.jpg" },
-      { name: { ar: "اسموزي بلوبيري", en: "Blueberry Smoothie" }, price: 80, image: "/images/blueberry_smoothie.jpg" },
-      { name: { ar: "اسموزي ريدبول", en: "Red Bull Smoothie" }, price: 95, image: "/images/red_bull_smoothie.jpg" },
-      { name: { ar: "اسموزي ميكس", en: "Mix Smoothie" }, price: 100, image: "/images/mix_smoothie.jpg",description:"" },
+      { name: { ar: "سموذي خوخ", en: "Peach Smoothie" }, price: 80, image: "/images/peach_smoothie.jpg" },
+      { name: { ar: "سموذي راسبيري", en: "Raspberry Smoothie" }, price: 80, image: "/images/raspberry_smoothie.jpg" },
+      { name: { ar: "سموذي باشون", en: "Passion Smoothie" }, price: 80, image: "/images/passion_smoothie.jpg" },
+      { name: { ar: "سموذي ليمون نعناع", en: "Lemon Mint Smoothie" }, price: 60, image: "/images/lemon_mint_smoothie.jpg" },
+      { name: { ar: "سموذي كيوي", en: "Kiwi Smoothie" }, price: 80, image: "/images/kiwi_smoothie.jpg" },
+      { name: { ar: "سموذي مانجو", en: "Mango Smoothie" }, price: 90, image: "/images/mango_smoothie.jpg" },
+      { name: { ar: "سموذي فراولة", en: "Strawberry Smoothie" }, price: 80, image: "/images/strawberry_smoothie.jpg" },
+      { name: { ar: "سموذي بطيخ", en: "Watermelon Smoothie" }, price: 85, image: "/images/watermelon_smoothie.jpg" },
+      { name: { ar: "سموذي ريد بيري", en: "Red Berry Smoothie" }, price: 80, image: "/images/red_berry_smoothie.jpg" },
+      { name: { ar: "سموذي بلوبيري", en: "Blueberry Smoothie" }, price: 80, image: "/images/blueberry_smoothie.jpg" },
+      { name: { ar: "سموذي ريد بول", en: "Red Bull Smoothie" }, price: 95, image: "/images/red_bull_smoothie.jpg" },
+      { name: { ar: "سموذي ميكس", en: "Mix Smoothie" }, price: 100, image: "/images/mix_smoothie.jpg" },
     ],
   },
-{
-  category: { ar: "زبادي", en: "Yoghurt" },
-  items: [
-    { name: { ar: "زبادي سادة", en: "Plain Yoghurt" }, price: 70, image: "/images/plain_yoghurt.jpg" },
-    { name: { ar: "زبادي مانجا", en: "Mango Yoghurt" }, price: 90, image: "/images/mango_smoothie.jpg" },
-    { name: { ar: "زبادي فراولة", en: "Strawberry Yoghurt" }, price: 85, image: "/images/strawberry_smoothie.jpg" },
-    { name: { ar: "زبادي بطيخ", en: "Watermelon Yoghurt" }, price: 85, image: "/images/watermelon_smoothie.jpg" },
-    { name: { ar: "زبادي خوخ", en: "Peach Yoghurt" }, price: 85, image: "/images/peach_smoothie.jpg" },
-    { name: { ar: "زبادي كيوي", en: "Kiwi Yoghurt" }, price: 85, image: "/images/kiwi_smoothie.jpg" },
-    { name: { ar: "زبادي ليمون نعناع", en: "Lemon Mint Yoghurt" }, price: 70, image: "/images/lemon_mint.jpg" },
-    { name: { ar: "زبادي فانيليا", en: "Vanilla Yoghurt" }, price: 85, image: "/images/vanilla_yoghurt.jpg" },
-    { name: { ar: "زبادي باشون", en: "Passion Yoghurt" }, price: 85, image: "/images/passion_smoothie.jpg" },
-    { name: { ar: "زبادي راسبيري", en: "Raspberry Yoghurt" }, price: 90, image: "/images/raspberry_smoothie.jpg" },
-    { name: { ar: "زبادي ريد بيري", en: "Red Berry Yoghurt" }, price: 110, image: "/images/red_berry_smoothie.jpg" },
-    { name: { ar: "زبادي بلوبري", en: "Blueberry Yoghurt" }, price: 85, image: "/images/blueberry_smoothie.jpg" },
-    { name: { ar: "زبادي ميكس", en: "Mix Yoghurt" }, price: 95, image: "/images/mix_smoothie.jpg" },
-  ]
-},
-
+  {
+    category: { ar: "زبادي", en: "Yoghurt" },
+    items: [
+      { name: { ar: "زبادي سادة", en: "Plain Yoghurt" }, price: 70, image: "/images/plain_yoghurt.jpg" },
+      { name: { ar: "زبادي مانجا", en: "Mango Yoghurt" }, price: 90, image: "/images/mango_smoothie.jpg" },
+      { name: { ar: "زبادي فراولة", en: "Strawberry Yoghurt" }, price: 85, image: "/images/strawberry_smoothie.jpg" },
+      { name: { ar: "زبادي بطيخ", en: "Watermelon Yoghurt" }, price: 85, image: "/images/watermelon_smoothie.jpg" },
+      { name: { ar: "زبادي خوخ", en: "Peach Yoghurt" }, price: 85, image: "/images/peach_smoothie.jpg" },
+      { name: { ar: "زبادي كيوي", en: "Kiwi Yoghurt" }, price: 85, image: "/images/kiwi_smoothie.jpg" },
+      { name: { ar: "زبادي ليمون نعناع", en: "Lemon Mint Yoghurt" }, price: 70, image: "/images/lemon_mint.jpg" },
+      { name: { ar: "زبادي فانيليا", en: "Vanilla Yoghurt" }, price: 85, image: "/images/vanilla_yoghurt.jpg" },
+      { name: { ar: "زبادي باشون", en: "Passion Yoghurt" }, price: 85, image: "/images/passion_smoothie.jpg" },
+      { name: { ar: "زبادي راسبيري", en: "Raspberry Yoghurt" }, price: 90, image: "/images/raspberry_smoothie.jpg" },
+      { name: { ar: "زبادي ريد بيري", en: "Red Berry Yoghurt" }, price: 110, image: "/images/red_berry_smoothie.jpg" },
+      { name: { ar: "زبادي بلوبري", en: "Blueberry Yoghurt" }, price: 85, image: "/images/blueberry_smoothie.jpg" },
+      { name: { ar: "زبادي ميكس", en: "Mix Yoghurt" }, price: 95, image: "/images/mix_smoothie.jpg" },
+    ]
+  },
   {
     category: { ar: "حلويات", en: "Desserts" },
     items: [
       { name: { ar: "وافل شوكولاتة", en: "Chocolate Waffle" }, price: 120, image: "/images/chocolate_waffle.jpg" },
       { name: { ar: "وافل نوتيلا", en: "Nutella Waffle" }, price: 130, image: "/images/nutella_waffle.jpg" },
       { name: { ar: "وافل فستق", en: "Pistachio Waffle" }, price: 150, image: "/images/pistachio_waffle.jpg" },
-      { name: { ar: "وافل لوتس", en: "Lotus Waffle" }, price: 130 , image: "/images/lotus_waffle.jpg" },
+      { name: { ar: "وافل لوتس", en: "Lotus Waffle" }, price: 130, image: "/images/lotus_waffle.jpg" },
       { name: { ar: "وافل ميكس", en: "Mix Waffle" }, price: 170, image: "/images/mix_waffle.jpg" },
-      { name: { ar: "وافل سوبر ميكس", en: "ٍSupper Mix Waffle" }, price: 200, image: "/images/supper_mix_waffle.jpg" },
-      { name: { ar: "وافل دابل سوبر ميكس", en: "Double Supper Mix Waffle" }, price: 250, image: "/images/dauble_supper_mix_waffle.jpg" },
+      { name: { ar: "وافل سوبر ميكس", en: "Super Mix Waffle" }, price: 200, image: "/images/supper_mix_waffle.jpg" },
+      { name: { ar: "وافل دابل سوبر ميكس", en: "Double Super Mix Waffle" }, price: 250, image: "/images/dauble_supper_mix_waffle.jpg" },
       { name: { ar: "وافل كراميل", en: "Caramel Waffle" }, price: 100, image: "/images/caramel_waffle.jpg" },
       { name: { ar: "وافل تشيز كيك", en: "Cheesecake Waffle" }, price: 110, image: "/images/cheesecake_waffle.jpg" },
       { name: { ar: "أم علي كبيرة", en: "Large Om Ali" }, price: 110, image: "/images/om_ali_large.jpg" },
@@ -96,182 +93,153 @@ const menu:MenuCategory[] = [
       { name: { ar: "بليلة", en: "Belila" }, price: 50, image: "/images/belila.jpg" },
       { name: { ar: "مولتن كيك", en: "Molten Cake" }, price: 130, image: "/images/molten_cake.jpg" },
       { name: { ar: "مولتن كيك نوتيلا", en: "Nutella Molten Cake" }, price: 150, image: "/images/nutella_molten_cake.jpg" },
-      { name: { ar: "بولة ايس كريم", en: "Ice Cream Bola" }, price: 35, image: "/images/ice_cream.jpg" },
+      { name: { ar: "بولة ايس كريم", en: "Ice Cream Scoop" }, price: 35, image: "/images/ice_cream.jpg" },
     ],
   },
   {
-  category: { ar: "إضافات", en: "Extras" },
-  items: [
-    { name: { ar: "فانيلا", en: "Vanilla Extra" }, price: 25, image: "/images/vanilla_extra.jpg" },
-    { name: { ar: "كراميل", en: "Caramel Extra" }, price: 25, image: "/images/caramel_extra.jpg" },
-    { name: { ar: "اكسترا بندق", en: "Hazelnut Extra" }, price: 35, image: "/images/pine_nut_extra.jpg" },
-    { name: { ar: "اكسترا فليفر", en: "Fliver Extra" }, price: 35, image: "/images/fliver_extra.jpg" },
-    { name: { ar: "اكسترا وايت كريم", en: "White Crame Extra" }, price: 30, image: "/images/white_Crame_extra.jpg" },
-    { name: { ar: "اكسترا شوكولاتة", en: "Chocolate Extra" }, price: 35, image: "/images/companies_extra.jpg" },
-    { name: { ar: "اكسترا عسل", en: "Honey Extra" }, price: 20, image: "/images/special_extra.jpg" },
-    { name: { ar: "اكسترا لبن", en: "Milk Extra" }, price: 25, image: "/images/light_extra.jpg" },
-    { name: { ar: "اكسترا شاي", en: "Tea Extra" }, price: 15, image: "/images/tea_extra.jpg" },
-    { name: { ar: "اكسترا بيستاشيو", en: "Pistachio Extra" }, price: 35, image: "/images/Pistachio_Extra.jpg" },
-    { name: { ar: "شوت إسبريسو", en: "Espresso Shot" }, price: 20, image: "/images/espresso_shot.jpg" },
-    { name: { ar: "اكسترا فواكه", en: "Fruit Extra" }, price: 35, image: "/images/fruit_mix.jpg" },
-    { name: { ar: "اكسترا مكسرات", en: "Nuts Extra" }, price: 25, image: "/images/Nuts_Extra.jpg" },
-    
-  ],
-},
-  {
-  category: { ar: "مشروبات ساخنة", en: "Hot Drinks" },
-  items: [
-  // ✅ الشاي والمشروبات العشبية
-  { name: { ar: "شاي أحمر", en: "Red Tea" }, price: 30, image: "/images/red_tea.jpg" },
-  { name: { ar: "يانسون", en: "Yanson" }, price: 35, image: "/images/yanson.jpg" },
-  { name: { ar: "شاي نعناع", en: "Mint Tea" }, price: 35, image: "/images/mint_tea.jpg" },
-  { name: { ar: "شاي أخضر", en: "Green Tea" }, price: 35, image: "/images/green_tea.jpg" },
-  { name: { ar: "كوفي ميكس", en: "Coffee Mix" }, price: 40, image: "/images/coffee_mix.jpg" },
-  { name: { ar: "شاي بنكهة", en: "Flavored Tea" }, price: 50, image: "/images/flavored_tea.jpg" },
-  { name: { ar: "حمص الشام", en: "Hummus El Sham" }, price: 55, image: "/images/hummus_el_sham.jpg" },
-  { name: { ar: "كورتادو", en: "Cortado" }, price: 50, image: "/images/cortado.jpg" },
-  { name: { ar: "شاي بحليب", en: "Milk Tea" }, price: 55, image: "/images/milk_tea.jpg" },  // جديد
-  { name: { ar: "ميكس أعشاب", en: "Herbal Mix" }, price: 55, image: "/images/herbal_mix.jpg" },
-
-  // ✅ مشروبات ساخنة متنوعة
-  { name: { ar: "سيدر ساخن", en: "Hot Cider" }, price: 60, image: "/images/hot_cider.jpg" },
-  { name: { ar: "ليمون ساخن", en: "Hot Lemon" }, price: 35, image: "/images/hot_lemon.jpg" },
-  { name: { ar: "جنزبيل", en: "Ginger Tea" }, price: 45, image: "/images/ginger_tea.jpg" },
-  { name: { ar: "نسكافيه", en: "Nescafe" }, price: 60, image: "/images/nescafe.jpg" },
-  { name: { ar: "سحلب", en: "Sahlab" }, price: 70, image: "/images/sahlab.jpg" },
-
-  // ✅ قهوة تركي و إسبريسو
-  { name: { ar: "قهوة تركي (سنجل)", en: "Turkish Coffee (Single)" }, price: 45, image: "/images/turkish_coffee_single.jpg" },
-  { name: { ar: "قهوة تركي (دابل)", en: "Turkish Coffee (Double)" }, price: 55, image: "/images/turkish_coffee_double.jpg" },
-  { name: { ar: "إسبريسو (سنجل)", en: "Espresso (Single)" }, price: 50, image: "/images/espresso_single.jpg" },
-  { name: { ar: "إسبريسو (دابل)", en: "Espresso (Double)" }, price: 60, image: "/images/espresso_double.jpg" },
-  { name: { ar: "ميكاتو (سنجل)", en: "Macchiato (Single)" }, price: 60, image: "/images/macchiato_single.jpg" },  // جديد
-  { name: { ar: "ميكاتو (دابل)", en: "Macchiato (Double)" }, price: 70, image: "/images/macchiato_double.jpg" },  // جديد
-
-  // ✅ أنواع القهوة المميزة
-  { name: { ar: "قهوة فرنسية", en: "French Coffee" }, price: 65, image: "/images/french_coffee.jpg" },
-  { name: { ar: "قهوة بندق", en: "Hazelnut Coffee" }, price: 65, image: "/images/hazelnut_coffee.jpg" }, // جديد
-  { name: { ar: "لاتيه بندق", en: "Hazelnut Latte" }, price: 60, image: "/images/hazelnut_latte.jpg" }, // جديد، اسم بديل
-  { name: { ar: "سبانيش لاتيه", en: "Spanish Latte" }, price: 75, image: "/images/spanish_latte.jpg" }, // جديد
-  { name: { ar: "فلات وايت", en: "Flat White" }, price: 80, image: "/images/flat_white.jpg" },
-  { name: { ar: "أمريكان كوفي", en: "American Coffee" }, price: 60, image: "/images/american_coffee.jpg" },
-  { name: { ar: "موكا", en: "Mocha" }, price: 70, image: "/images/mocha.jpg" },
-  { name: { ar: "هوت شوكليت", en: "Hot Chocolate" }, price: 60, image: "/images/hot_chocolate.jpg" },
-  { name: { ar: "كاراميل ميكاتو", en: "Caramel Macchiato" }, price: 70, image: "/images/caramel_macchiato.jpg" },
-  { name: { ar: "لاتيه لوتس", en: "Lotus Latte" }, price: 70, image: "/images/lotus_latte.jpg" }, // جديد
-
-  // ✅ كابتشينو
-  { name: { ar: "كابتشينو (ميديام)", en: "Cappuccino (Medium)" }, price: 75, image: "/images/cappuccino_medium.jpg" }, // جديد
-  { name: { ar: "كابتشينو (لارج)", en: "Cappuccino (Large)" }, price: 85, image: "/images/cappuccino.jpg" }
-],
-},
-
-{
-  category: { ar: "مشروبات غازية", en: "Soft Drinks" },
-  items: [
-
-    { name: { ar: "كولا", en: "Cola" }, price: 50, image: "/images/cola.jpg" },
-    { name: { ar: "كولا زيرو", en: "Zero Cola" }, price: 50, image: "/images/zero_cola.jpg" },
-    { name: { ar: "بيبسي", en: "Pepsi" }, price: 50, image: "/images/pepsi.jpg" },
-    { name: { ar: "بيبسي زيرو", en: "Pepsi Zero" }, price: 50, image: "/images/pepsi_zero.jpg" },
-    { name: { ar: "فانتا", en: "Fanta" }, price: 50, image: "/images/fanta.jpg" },
-    { name: { ar: "سبرايت", en: "Sprite" }, price: 50, image: "/images/sprite.jpg" },
-    { name: { ar: "ميريندا", en: "Mirinda" }, price: 50, image: "/images/mirinda.jpg" },
-    { name: { ar: "سيفن أب", en: "7 Up" }, price: 50, image: "/images/7up.jpg" },           
-    { name: { ar: "V كولا", en: "V Cola" }, price: 50, image: "/images/v_cola.jpg" },       
-    { name: { ar: "فيوري", en: "Fury" }, price: 50, image: "/images/fury.jpg" },           
-    { name: { ar: "فيروز", en: "Fayrouz" }, price: 50, image: "/images/fayrouz.jpg" },
-    { name: { ar: "سبيرو سباتس", en: "Spiro Spathis" }, price: 35, image: "/images/spiro-spathis.jpg" },
-    { name: { ar: "شويبس", en: "Schweppes" }, price: 50, image: "/images/schweppes.jpg" },
-    { name: { ar: "تويست", en: "Twist" }, price: 50, image: "/images/twist.jpg" },   
-    { name: { ar: "بيريل", en: "Birell" }, price: 55, image: "/images/birell.jpg" },
-    { name: { ar: "ريد بول", en: "Red Bull" }, price: 100, image: "/images/red_bull.jpg" },
-    { name: { ar: "شيري كولا", en: "Cherry Cola" }, price: 85, image: "/images/cherry_cola.jpg" },
-    { name: { ar: "مياه", en: "Water" }, price: 15, image: "/images/water.jpg" },
-  ],
-},
-{
-  category: { ar: "مهيتو", en: "Mojitos" },
-  items: [
-    { name: { ar: "مهيتو كلاسيك", en: "Classic Mojito" }, price: 80, image: "/images/classic_mojito.jpg" },
-    { name: { ar: "مهيتو ريد بول", en: "Red Bull Mojito" }, price: 110, image: "/images/red_bull_mojito.jpg" },
-    { name: { ar: "مهيتو راسبيري", en: "Raspberry Mojito" }, price: 85, image: "/images/raspberry_mojito.jpg" },
-    { name: { ar: "مهيتو بلوبيري", en: "Blueberry Mojito" }, price: 85, image: "/images/blueberry_mojito.jpg" },
-    { name: { ar: "مهيتو خوخ", en: "Peach Mojito" }, price: 85, image: "/images/peach_mojito.jpg" },
-    { name: { ar: "مهيتو باشون", en: "Passion Mojito" }, price: 90, image: "/images/passion_mojito.jpg" },
-    { name: { ar: "مهيتو فراولة", en: "Strawberry Mojito" }, price: 85, image: "/images/strawberry_mojito.jpg" },
-    { name: { ar: "مهيتو كيوي", en: "Kiwi Mojito" }, price: 100, image: "/images/kiwi_mojito.jpg" },
-    { name: { ar: "مهيتو شيري", en: "Cherry Mojito" }, price: 80, image: "/images/cherry_mojito.jpg" },
-    { name: { ar: "مهيتو بطيخ", en: "Watermelon Mojito" }, price: 80, image: "/images/watermelon_mojito.jpg" }, // جديد
-    { name: { ar: "مهيتو أناناس", en: "Pineapple Mojito" }, price: 80, image: "/images/pineapple_mojito.jpg" }, // جديد
-    { name: { ar: "مهيتو مانجو", en: "Mango Mojito" }, price: 85, image: "/images/mango_mojito.jpg" },
-    { name: { ar: "مهيتو رمان", en: "Pomegranate Mojito" }, price: 80, image: "/images/pomegranate_mojito.jpg" }
-  ]
-},
-{
-  category: { ar: "صن شاين", en: "Sunshine Drinks" },
-  items: [// Classic
-{ name: { ar: "صن شاين كلاسيك", en: "Classic Sunshine" }, price: 80, image: "/images/classic_sunshine.jpg" },
-
-// Fruits
-{ name: { ar: "صن شاين خوخ", en: "Peach Sunshine" }, price: 75, image: "/images/peach_sunshine.jpg" },
-{ name: { ar: "صن شاين رمان", en: "Pomegranate Sunshine" }, price: 85, image: "/images/pomegranate_sunshine.jpg" },
-{ name: { ar: "صن شاين بلوبري", en: "Blueberry Sunshine" }, price: 85, image: "/images/blueberry_sunshine.jpg" },
-{ name: { ar: "صن شاين نعناع", en: "Mint Sunshine" }, price: 85, image: "/images/mint_sunshine.jpg" },
-{ name: { ar: "صن شاين ليمون", en: "Lemon Sunshine" }, price: 85, image: "/images/lemon_sunshine.jpg" },
-{ name: { ar: "صن شاين كيوي", en: "Kiwi Sunshine" }, price: 85, image: "/images/kiwi_sunshine.jpg" },
-{ name: { ar: "صن شاين فراولة", en: "Strawberry Sunshine" }, price: 85, image: "/images/strawberry_sunshine.jpg" },
-{ name: { ar: "صن شاين مانجو", en: "Mango Sunshine" }, price: 85, image: "/images/mango_sunshine.jpg" },
-{ name: { ar: "صن شاين أناناس", en: "Pineapple Sunshine" }, price: 85, image: "/images/pineapple_sunshine.jpg" },
-{ name: { ar: "صن شاين بطيخ", en: "Watermelon Sunshine" }, price: 85, image: "/images/watermelon_sunshine.jpg" },
-{ name: { ar: "صن شاين راسبيري", en: "Raspberry Sunshine" }, price: 85, image: "/images/raspberry_sunshine.jpg" },
-{ name: { ar: "صن شاين باشون فروت", en: "Passion Fruit Sunshine" }, price: 90, image: "/images/passion_sunshine.jpg" },
-
-// Others
-{ name: { ar: "صن شاين فانيليا", en: "Vanilla Sunshine" }, price: 85, image: "/images/vanilla_sunshine.jpg" },
-{ name: { ar: "صن شاين ميكس", en: "Mix Sunshine" }, price: 90, image: "/images/mix_sunshine.jpg" },
-],
+    category: { ar: "إضافات", en: "Extras" },
+    items: [
+      { name: { ar: "فانيلا", en: "Vanilla Extra" }, price: 25, image: "/images/vanilla_extra.jpg" },
+      { name: { ar: "كراميل", en: "Caramel Extra" }, price: 25, image: "/images/caramel_extra.jpg" },
+      { name: { ar: "اكسترا بندق", en: "Hazelnut Extra" }, price: 35, image: "/images/pine_nut_extra.jpg" },
+      { name: { ar: "اكسترا فليفر", en: "Flavor Extra" }, price: 35, image: "/images/fliver_extra.jpg" },
+      { name: { ar: "اكسترا وايت كريم", en: "White Cream Extra" }, price: 30, image: "/images/white_Crame_extra.jpg" },
+      { name: { ar: "اكسترا شوكولاتة", en: "Chocolate Extra" }, price: 35, image: "/images/companies_extra.jpg" },
+      { name: { ar: "اكسترا عسل", en: "Honey Extra" }, price: 20, image: "/images/special_extra.jpg" },
+      { name: { ar: "اكسترا لبن", en: "Milk Extra" }, price: 25, image: "/images/light_extra.jpg" },
+      { name: { ar: "اكسترا شاي", en: "Tea Extra" }, price: 15, image: "/images/tea_extra.jpg" },
+      { name: { ar: "اكسترا بيستاشيو", en: "Pistachio Extra" }, price: 35, image: "/images/Pistachio_Extra.jpg" },
+      { name: { ar: "شوت إسبريسو", en: "Espresso Shot" }, price: 20, image: "/images/espresso_shot.jpg" },
+      { name: { ar: "اكسترا فواكه", en: "Fruit Extra" }, price: 35, image: "/images/fruit_mix.jpg" },
+      { name: { ar: "اكسترا مكسرات", en: "Nuts Extra" }, price: 25, image: "/images/Nuts_Extra.jpg" },
+    ],
   },
-{
-  category: { ar: "فرابيه", en: "Frappes" },
-  items: [
-  { name: { ar: "فرابتشينو", en: "Frappuccino" }, price: 90, image: "/images/caramel_frappe.jpg" },
-  { name: { ar: "كراميل فرابيه", en: "Caramel Frappe" }, price: 85, image: "/images/coffee_frappe.jpg" },
-  { name: { ar: "أوريو فرابيه", en: "Oreo Frappe" }, price: 90, image: "/images/oreo_frappe.jpg" },
-  { name: { ar: "فرابيه موكا", en: "Mocha Frappe" }, price: 85, image: "/images/mocha_frappe.jpg" },
-  { name: { ar: "فرابيه لوتس", en: "Lotus Frappe" }, price: 90, image: "/images/lotus_frappe.jpg" },
-  { name: { ar: "فرابيه شوكولاتة", en: "Chocolate Frappe" }, price: 85, image: "/images/chocolate_frappe.jpg" },
-  { name: { ar: "فرابيه نوتيلا", en: "Nutella Frappe" }, price: 90, image: "/images/nutella_frappe.jpg" }
-],
-},
-{
-  category: { ar: "ايس كوفي", en: "Iced Coffee" },
-  items: [
-    { name: { ar: "ايس لاتيه", en: "Iced Latte" }, price: 65, image: "/images/iced_latte.jpg" },
-    { name: { ar: "ايس موكا", en: "Iced Mocha" }, price: 75, image: "/images/iced_mocha.jpg" },
-    { name: { ar: "ايس كوفي", en: "Iced Coffee" }, price: 70, image: "/images/iced_coffee.jpg" },
-  ],
-},
-{
-  category: { ar: "شيشة", en: "Shisha" },
-  items: [
-    { name: { ar: "شيشة ميكس", en: "Shisha mix" }, price: 140, image: "/images/shisha_mix.jpg" },
-    { name: { ar: "معسل", en: "Molasses" }, price: 40, image: "/images/shisha_molasses.jpg" },
-    { name: { ar: "لي", en: "Shisha Hose" }, price: 25, image: "/images/shisha_hose.jpg" },
-    { name: { ar: "غيار ميكس", en: "Mix Refill" }, price: 100, image: "/images/shisha_hose.jpg" },
-    { name: { ar: "غيار معسل", en: "Molasses Refill" }, price: 35, image: "/images/shisha_hose.jpg" },
-  ],
-},
-{
-  category: { ar: "بلايستيشن", en: "PlayStation" },
-  items: [
-    { name: { ar: "بلايستيشن 4 سينجل", en: "PlayStation 4" }, price: 150, image: "/images/playstation.jpg", description:"فتحة الجهاز بـ150ج" },
-    { name: { ar: "بلايستيشن 4 مالتي", en: "PlayStation 4" }, price: 150, image: "/images/playstation.jpg", description:"فتحة الجهاز بـ150ج" },
-    { name: { ar: "بلايستيشن 5 سينجل", en: "PlayStation 5" }, price: 200, image: "/images/playstation.jpg", description:"فتحة الجهاز بـ200ج" },
-    { name: { ar: "بلايستيشن 5 مالتي", en: "PlayStation 5" }, price: 200, image: "/images/playstation.jpg", description:"فتحة الجهاز بـ200ج" },
-  
-  ],
-},
+  {
+    category: { ar: "مشروبات ساخنة", en: "Hot Drinks" },
+    items: [
+      // الشاي والمشروبات العشبية
+      { name: { ar: "شاي أحمر", en: "Red Tea" }, price: 30, image: "/images/red_tea.jpg" },
+      { name: { ar: "يانسون", en: "Anise Tea" }, price: 35, image: "/images/yanson.jpg" },
+      { name: { ar: "شاي نعناع", en: "Mint Tea" }, price: 35, image: "/images/mint_tea.jpg" },
+      { name: { ar: "شاي أخضر", en: "Green Tea" }, price: 35, image: "/images/green_tea.jpg" },
+      { name: { ar: "كوفي ميكس", en: "Coffee Mix" }, price: 40, image: "/images/coffee_mix.jpg" },
+      { name: { ar: "شاي بنكهة", en: "Flavored Tea" }, price: 50, image: "/images/flavored_tea.jpg" },
+      { name: { ar: "حمص الشام", en: "Hummus El Sham" }, price: 55, image: "/images/hummus_el_sham.jpg" },
+      { name: { ar: "كورتادو", en: "Cortado" }, price: 50, image: "/images/cortado.jpg" },
+      { name: { ar: "شاي بحليب", en: "Milk Tea" }, price: 55, image: "/images/milk_tea.jpg" },
+      { name: { ar: "ميكس أعشاب", en: "Herbal Mix" }, price: 55, image: "/images/herbal_mix.jpg" },
 
+      // مشروبات ساخنة متنوعة
+      { name: { ar: "سيدر ساخن", en: "Hot Cider" }, price: 60, image: "/images/hot_cider.jpg" },
+      { name: { ar: "ليمون ساخن", en: "Hot Lemon" }, price: 35, image: "/images/hot_lemon.jpg" },
+      { name: { ar: "جنزبيل", en: "Ginger Tea" }, price: 45, image: "/images/ginger_tea.jpg" },
+      { name: { ar: "نسكافيه", en: "Nescafe" }, price: 60, image: "/images/nescafe.jpg" },
+      { name: { ar: "سحلب", en: "Sahlab" }, price: 70, image: "/images/sahlab.jpg" },
+
+      // قهوة تركي وإسبريسو
+      { name: { ar: "قهوة تركي (سنجل)", en: "Turkish Coffee (Single)" }, price: 45, image: "/images/turkish_coffee_single.jpg" },
+      { name: { ar: "قهوة تركي (دابل)", en: "Turkish Coffee (Double)" }, price: 55, image: "/images/turkish_coffee_double.jpg" },
+      { name: { ar: "إسبريسو (سنجل)", en: "Espresso (Single)" }, price: 50, image: "/images/espresso_single.jpg" },
+      { name: { ar: "إسبريسو (دابل)", en: "Espresso (Double)" }, price: 60, image: "/images/espresso_double.jpg" },
+      { name: { ar: "ميكاتو (سنجل)", en: "Macchiato (Single)" }, price: 60, image: "/images/macchiato_single.jpg" },
+      { name: { ar: "ميكاتو (دابل)", en: "Macchiato (Double)" }, price: 70, image: "/images/macchiato_double.jpg" },
+
+      // أنواع القهوة المميزة
+      { name: { ar: "قهوة فرنسية", en: "French Coffee" }, price: 65, image: "/images/french_coffee.jpg" },
+      { name: { ar: "قهوة بندق", en: "Hazelnut Coffee" }, price: 65, image: "/images/hazelnut_coffee.jpg" },
+      { name: { ar: "لاتيه بندق", en: "Hazelnut Latte" }, price: 60, image: "/images/hazelnut_latte.jpg" },
+      { name: { ar: "سبرايت", en: "Sprite" }, price: 50, image: "/images/sprite.jpg" },
+      { name: { ar: "ميريندا", en: "Mirinda" }, price: 50, image: "/images/mirinda.jpg" },
+      { name: { ar: "سيفن أب", en: "7 Up" }, price: 50, image: "/images/7up.jpg" },
+      { name: { ar: "V كولا", en: "V Cola" }, price: 50, image: "/images/v_cola.jpg" },
+      { name: { ar: "فيوري", en: "Fury" }, price: 50, image: "/images/fury.jpg" },
+      { name: { ar: "فيروز", en: "Fayrouz" }, price: 50, image: "/images/fayrouz.jpg" },
+      { name: { ar: "سبيرو سباتس", en: "Spiro Spathis" }, price: 35, image: "/images/spiro-spathis.jpg" },
+      { name: { ar: "شويبس", en: "Schweppes" }, price: 50, image: "/images/schweppes.jpg" },
+      { name: { ar: "تويست", en: "Twist" }, price: 50, image: "/images/twist.jpg" },
+      { name: { ar: "بيريل", en: "Birell" }, price: 55, image: "/images/birell.jpg" },
+      { name: { ar: "ريد بول", en: "Red Bull" }, price: 100, image: "/images/red_bull.jpg" },
+      { name: { ar: "شيري كولا", en: "Cherry Cola" }, price: 85, image: "/images/cherry_cola.jpg" },
+      { name: { ar: "مياه", en: "Water" }, price: 15, image: "/images/water.jpg" },
+    ],
+  },
+  {
+    category: { ar: "مهيتو", en: "Mojitos" },
+    items: [
+      { name: { ar: "مهيتو كلاسيك", en: "Classic Mojito" }, price: 80, image: "/images/classic_mojito.jpg" },
+      { name: { ar: "مهيتو ريد بول", en: "Red Bull Mojito" }, price: 110, image: "/images/red_bull_mojito.jpg" },
+      { name: { ar: "مهيتو راسبيري", en: "Raspberry Mojito" }, price: 85, image: "/images/raspberry_mojito.jpg" },
+      { name: { ar: "مهيتو بلوبيري", en: "Blueberry Mojito" }, price: 85, image: "/images/blueberry_mojito.jpg" },
+      { name: { ar: "مهيتو خوخ", en: "Peach Mojito" }, price: 85, image: "/images/peach_mojito.jpg" },
+      { name: { ar: "مهيتو باشون", en: "Passion Mojito" }, price: 90, image: "/images/passion_mojito.jpg" },
+      { name: { ar: "مهيتو فراولة", en: "Strawberry Mojito" }, price: 85, image: "/images/strawberry_mojito.jpg" },
+      { name: { ar: "مهيتو كيوي", en: "Kiwi Mojito" }, price: 100, image: "/images/kiwi_mojito.jpg" },
+      { name: { ar: "مهيتو شيري", en: "Cherry Mojito" }, price: 80, image: "/images/cherry_mojito.jpg" },
+      { name: { ar: "مهيتو بطيخ", en: "Watermelon Mojito" }, price: 80, image: "/images/watermelon_mojito.jpg" },
+      { name: { ar: "مهيتو أناناس", en: "Pineapple Mojito" }, price: 80, image: "/images/pineapple_mojito.jpg" },
+      { name: { ar: "مهيتو مانجو", en: "Mango Mojito" }, price: 85, image: "/images/mango_mojito.jpg" },
+      { name: { ar: "مهيتو رمان", en: "Pomegranate Mojito" }, price: 80, image: "/images/pomegranate_mojito.jpg" }
+    ]
+  },
+  {
+    category: { ar: "صن شاين", en: "Sunshine Drinks" },
+    items: [
+      { name: { ar: "صن شاين كلاسيك", en: "Classic Sunshine" }, price: 80, image: "/images/classic_sunshine.jpg" },
+      { name: { ar: "صن شاين خوخ", en: "Peach Sunshine" }, price: 75, image: "/images/peach_sunshine.jpg" },
+      { name: { ar: "صن شاين رمان", en: "Pomegranate Sunshine" }, price: 85, image: "/images/pomegranate_sunshine.jpg" },
+      { name: { ar: "صن شاين بلوبري", en: "Blueberry Sunshine" }, price: 85, image: "/images/blueberry_sunshine.jpg" },
+      { name: { ar: "صن شاين نعناع", en: "Mint Sunshine" }, price: 85, image: "/images/mint_sunshine.jpg" },
+      { name: { ar: "صن شاين ليمون", en: "Lemon Sunshine" }, price: 85, image: "/images/lemon_sunshine.jpg" },
+      { name: { ar: "صن شاين كيوي", en: "Kiwi Sunshine" }, price: 85, image: "/images/kiwi_sunshine.jpg" },
+      { name: { ar: "صن شاين فراولة", en: "Strawberry Sunshine" }, price: 85, image: "/images/strawberry_sunshine.jpg" },
+      { name: { ar: "صن شاين مانجو", en: "Mango Sunshine" }, price: 85, image: "/images/mango_sunshine.jpg" },
+      { name: { ar: "صن شاين أناناس", en: "Pineapple Sunshine" }, price: 85, image: "/images/pineapple_sunshine.jpg" },
+      { name: { ar: "صن شاين بطيخ", en: "Watermelon Sunshine" }, price: 85, image: "/images/watermelon_sunshine.jpg" },
+      { name: { ar: "صن شاين راسبيري", en: "Raspberry Sunshine" }, price: 85, image: "/images/raspberry_sunshine.jpg" },
+      { name: { ar: "صن شاين باشون فروت", en: "Passion Fruit Sunshine" }, price: 90, image: "/images/passion_sunshine.jpg" },
+      { name: { ar: "صن شاين فانيليا", en: "Vanilla Sunshine" }, price: 85, image: "/images/vanilla_sunshine.jpg" },
+      { name: { ar: "صن شاين ميكس", en: "Mix Sunshine" }, price: 90, image: "/images/mix_sunshine.jpg" },
+    ],
+  },
+  {
+    category: { ar: "فرابيه", en: "Frappes" },
+    items: [
+      { name: { ar: "فرابتشينو", en: "Frappuccino" }, price: 90, image: "/images/caramel_frappe.jpg" },
+      { name: { ar: "كراميل فرابيه", en: "Caramel Frappe" }, price: 85, image: "/images/coffee_frappe.jpg" },
+      { name: { ar: "أوريو فرابيه", en: "Oreo Frappe" }, price: 90, image: "/images/oreo_frappe.jpg" },
+      { name: { ar: "فرابيه موكا", en: "Mocha Frappe" }, price: 85, image: "/images/mocha_frappe.jpg" },
+      { name: { ar: "فرابيه لوتس", en: "Lotus Frappe" }, price: 90, image: "/images/lotus_frappe.jpg" },
+      { name: { ar: "فرابيه شوكولاتة", en: "Chocolate Frappe" }, price: 85, image: "/images/chocolate_frappe.jpg" },
+      { name: { ar: "فرابيه نوتيلا", en: "Nutella Frappe" }, price: 90, image: "/images/nutella_frappe.jpg" }
+    ],
+  },
+  {
+    category: { ar: "ايس كوفي", en: "Iced Coffee" },
+    items: [
+      { name: { ar: "ايس لاتيه", en: "Iced Latte" }, price: 65, image: "/images/iced_latte.jpg" },
+      { name: { ar: "ايس موكا", en: "Iced Mocha" }, price: 75, image: "/images/iced_mocha.jpg" },
+      { name: { ar: "ايس كوفي", en: "Iced Coffee" }, price: 70, image: "/images/iced_coffee.jpg" },
+    ],
+  },
+  {
+    category: { ar: "شيشة", en: "Shisha" },
+    items: [
+      { name: { ar: "شيشة ميكس", en: "Shisha Mix" }, price: 140, image: "/images/shisha_mix.jpg", description: "فتحة الجهاز بـ140ج" },
+      { name: { ar: "معسل", en: "Molasses" }, price: 40, image: "/images/shisha_molasses.jpg" },
+      { name: { ar: "لي", en: "Shisha Hose" }, price: 25, image: "/images/shisha_hose.jpg" },
+      { name: { ar: "غيار ميكس", en: "Mix Refill" }, price: 100, image: "/images/shisha_hose.jpg" },
+      { name: { ar: "غيار معسل", en: "Molasses Refill" }, price: 35, image: "/images/shisha_hose.jpg" },
+    ],
+  },
+  {
+    category: { ar: "بلايستيشن", en: "PlayStation" },
+    items: [
+      { name: { ar: "بلايستيشن 4 سينجل", en: "PlayStation 4 Single" }, price: 150, image: "/images/playstation.jpg", description: "فتحة الجهاز بـ150ج" },
+      { name: { ar: "بلايستيشن 4 مالتي", en: "PlayStation 4 Multi" }, price: 150, image: "/images/playstation.jpg", description: "فتحة الجهاز بـ150ج" },
+      { name: { ar: "بلايستيشن 5 سينجل", en: "PlayStation 5 Single" }, price: 200, image: "/images/playstation.jpg", description: "فتحة الجهاز بـ200ج" },
+      { name: { ar: "بلايستيشن 5 مالتي", en: "PlayStation 5 Multi" }, price: 200, image: "/images/playstation.jpg", description: "فتحة الجهاز بـ200ج" },
+    ],
+  },
 ];
+
 export default menu;
