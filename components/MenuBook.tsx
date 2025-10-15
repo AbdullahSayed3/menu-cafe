@@ -1,297 +1,277 @@
 'use client';
 
-import { useState, useRef, useEffect } from 'react';
-import { ChevronLeft, ChevronRight, Coffee, Star } from 'lucide-react';
-import menu from '@/lib/menuData'; // Your existing menu data
+import { useEffect, useState, useRef } from 'react';
+import Image from 'next/image';
+import Link from 'next/link';
+import { Home, MapPin, Facebook, Instagram, Phone } from 'lucide-react';
+// @ts-ignore
+import HTMLFlipBook from 'react-pageflip';
+import menu from '@/lib/menuData';
 
 export default function MenuBook() {
-  const [currentPage, setCurrentPage] = useState(0);
-  const [isFlipping, setIsFlipping] = useState(false);
-  const [flipDirection, setFlipDirection] = useState<'next' | 'prev' | null>(null);
-  const [dragOffset, setDragOffset] = useState(0);
-  const touchStartX = useRef(0);
-  const touchEndX = useRef(0);
-  const isDragging = useRef(false);
+  const [isMounted, setIsMounted] = useState(false);
+  const [currentCategory, setCurrentCategory] = useState(0);
+  const bookRef = useRef<any>(null);
 
-  const categories = menu;
-  const totalPages = categories.length;
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
 
-  const flipToNextPage = () => {
-    if (currentPage < totalPages - 1 && !isFlipping) {
-      setIsFlipping(true);
-      setFlipDirection('next');
-      setTimeout(() => {
-        setCurrentPage(prev => prev + 1);
-        setTimeout(() => {
-          setIsFlipping(false);
-          setFlipDirection(null);
-        }, 200);
-      }, 400);
-    }
-  };
-
-  const flipToPrevPage = () => {
-    if (currentPage > 0 && !isFlipping) {
-      setIsFlipping(true);
-      setFlipDirection('prev');
-      setTimeout(() => {
-        setCurrentPage(prev => prev - 1);
-        setTimeout(() => {
-          setIsFlipping(false);
-          setFlipDirection(null);
-        }, 200);
-      }, 400);
-    }
-  };
-
-  const handleTouchStart = (e: React.TouchEvent) => {
-    touchStartX.current = e.touches[0].clientX;
-    isDragging.current = true;
-    setDragOffset(0);
-  };
-
-  const handleTouchMove = (e: React.TouchEvent) => {
-    if (!isDragging.current) return;
-    touchEndX.current = e.touches[0].clientX;
-    const offset = touchEndX.current - touchStartX.current;
-    setDragOffset(Math.max(-100, Math.min(100, offset)));
-  };
-
-  const handleTouchEnd = () => {
-    if (!isDragging.current) return;
-    isDragging.current = false;
+  const goToCategory = (catIndex: number) => {
+    setCurrentCategory(catIndex);
     
-    const deltaX = touchStartX.current - touchEndX.current;
-    const threshold = 50;
-
-    if (Math.abs(deltaX) > threshold) {
-      if (deltaX > 0) {
-        flipToNextPage();
-      } else {
-        flipToPrevPage();
+    if (bookRef.current) {
+      try {
+        // Find the correct page number for this category
+        // Cover is page 0, first category starts at page 1
+        const pageNumber = catIndex + 1;
+        
+        console.log('Going to category:', catIndex, 'Page:', pageNumber);
+        
+        const flipBook = bookRef.current.pageFlip();
+        if (flipBook && flipBook.turnToPage) {
+          flipBook.turnToPage(pageNumber);
+        }
+      } catch (e) {
+        console.error('Flip error:', e);
       }
     }
-    
-    setDragOffset(0);
   };
 
-  const currentCategory = categories[currentPage];
+  const handleFlip = (e: any) => {
+    const pageNum = e?.data || 0;
+    // Update current category based on page (page 0 = cover, page 1+ = categories)
+    if (pageNum > 0 && pageNum <= menu.length) {
+      setCurrentCategory(pageNum - 1);
+    }
+  };
+
+  if (!isMounted) {
+    return (
+      <div className="flex justify-center items-center min-h-screen bg-[#D4B896]">
+        <div className="text-[#5D4037] text-xl">جاري التحميل...</div>
+      </div>
+    );
+  }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#F5F1EB] via-[#F9F6F1] to-[#F2EDE6] flex items-center justify-center p-4">
-      <div className="relative max-w-md w-full">
-        {/* Enhanced Header */}
-        <div className="text-center mb-8">
-          <div className="flex items-center justify-center gap-3 mb-3">
-            <div className="relative">
-              <Coffee className="w-8 h-8 text-[#8B4513]" />
-              <div className="absolute inset-0 w-8 h-8 bg-[#8B4513]/20 rounded-full blur-md"></div>
-            </div>
-            <h1 className="text-3xl font-bold text-[#8B4513] tracking-wide font-display">
-              Dollar Café
-            </h1>
-            <div className="relative">
-              <Star className="w-7 h-7 text-[#D2B48C] fill-current" />
-              <div className="absolute inset-0 w-7 h-7 bg-[#D2B48C]/20 rounded-full blur-md"></div>
-            </div>
-          </div>
-          <div className="w-24 h-0.5 bg-gradient-to-r from-[#8B4513] to-[#CD853F] mx-auto mb-3 rounded-full"></div>
-          <p className="text-sm text-[#8B7355] font-medium tracking-wide">قائمة الطعام • Menu</p>
-        </div>
-
-        {/* Enhanced Menu Book Container */}
-        <div className="relative">
-          {/* Book Shadow - Enhanced with multiple layers */}
-          <div className="absolute inset-0 bg-gradient-to-br from-black/5 to-black/15 rounded-3xl blur-2xl translate-y-6 scale-105"></div>
-          <div className="absolute inset-0 bg-black/10 rounded-2xl blur-xl translate-y-4 scale-102"></div>
-          
-          {/* Main Book */}
-          <div 
-            className={`relative bg-white rounded-3xl border-2 border-[#E8E0D5] overflow-hidden transform-gpu transition-all duration-500 ${
-              isFlipping ? 'scale-[0.98] shadow-2xl' : 'scale-100 shadow-3xl'
-            }`}
-            style={{
-              transform: `translateX(${dragOffset * 0.5}px) rotateY(${dragOffset * 0.2}deg)`,
-              backgroundImage: `
-                radial-gradient(circle at 100% 50%, transparent 20px, rgba(232, 224, 213, 0.3) 21px),
-                linear-gradient(90deg, rgba(139, 69, 19, 0.03) 0%, transparent 8%),
-                radial-gradient(circle at 50% 100%, rgba(139, 69, 19, 0.02) 0%, transparent 50%)
-              `,
-            }}
-            onTouchStart={handleTouchStart}
-            onTouchMove={handleTouchMove}
-            onTouchEnd={handleTouchEnd}
+    <div className="flex flex-col min-h-screen bg-gradient-to-br from-[#D4B896] to-[#C4A886] font-cafe relative">
+      {/* Sticky Navigation Bar */}
+      <div className="sticky top-0 z-50 bg-[#5D4037]/95 backdrop-blur-sm shadow-lg">
+        <div className="max-w-7xl mx-auto px-4 py-3 flex items-center gap-4">
+          <Link
+            href="/"
+            className="flex items-center gap-2 bg-white/90 hover:bg-white transition-all px-3 py-2 rounded-full shadow-md flex-shrink-0"
           >
-            {/* Enhanced Binding Edge */}
-            <div className="absolute left-0 top-0 bottom-0 w-12 bg-gradient-to-r from-[#8B4513]/8 via-[#8B4513]/4 to-transparent">
-              <div className="absolute left-2 top-0 bottom-0 w-px bg-[#8B4513]/10"></div>
-              <div className="absolute left-4 top-0 bottom-0 w-px bg-[#8B4513]/5"></div>
-            </div>
-            
-            {/* Page flip animation container */}
-            <div className={`relative overflow-hidden transition-all duration-600 ease-out ${
-              isFlipping 
-                ? (flipDirection === 'next' 
-                    ? 'transform rotateY-[15deg] scale-x-95' 
-                    : 'transform rotateY-[15deg] scale-x-95') 
-                : 'transform rotateY-0 scale-x-100'
-            }`}>
-              
-              {/* Enhanced Category Header */}
-              <div className="relative bg-gradient-to-br from-[#8B4513] via-[#A0522D] to-[#8B4513] text-white px-8 py-8">
-                {/* Texture overlay */}
-                <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="white" fill-opacity="0.08"%3E%3Cpath d="m0 60 60-60v60z"/%3E%3Cpath d="M60 0v60L0 0z"/%3E%3C/g%3E%3C/svg%3E')]"></div>
-                
-                <div className="relative text-center">
-                  <div className="mb-3">
-                    <h2 className="text-2xl font-bold tracking-wide font-display drop-shadow-sm">
-                      {currentCategory.category.en}
-                    </h2>
-                  </div>
-                  <div className="w-16 h-0.5 bg-white/60 mx-auto mb-3 rounded-full"></div>
-                  <p className="text-lg opacity-90 font-medium rtl tracking-wide" style={{ direction: 'rtl' }}>
-                    {currentCategory.category.ar}
-                  </p>
-                </div>
-                
-                {/* Enhanced Page Number */}
-                <div className="absolute top-6 right-8 text-white/40 text-xs font-medium tracking-wider">
-                  {String(currentPage + 1).padStart(2, '0')} / {String(totalPages).padStart(2, '0')}
-                </div>
+            <Home className="w-4 h-4 text-[#5D4037]" />
+            <span className="text-xs font-medium text-[#5D4037] hidden sm:inline">الرئيسية</span>
+          </Link>
 
-                {/* Decorative corner elements */}
-                <div className="absolute top-4 left-4 w-3 h-3 border-l-2 border-t-2 border-white/20"></div>
-                <div className="absolute bottom-4 right-4 w-3 h-3 border-r-2 border-b-2 border-white/20"></div>
-              </div>
-
-              {/* Enhanced Menu Items Section */}
-              <div className="relative px-8 py-8 min-h-[520px] bg-gradient-to-b from-[#FEFDFB] to-[#FAF8F5]">
-                {/* Paper texture */}
-                <div className="absolute inset-0 opacity-[0.02] bg-[url('data:image/svg+xml,%3Csvg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"%3E%3Cfilter id="noiseFilter"%3E%3CfeTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="3" stitchTiles="stitch"/%3E%3C/filter%3E%3Crect width="100%25" height="100%25" filter="url(%23noiseFilter)"/%3E%3C/svg%3E')] mix-blend-multiply"></div>
-                
-                <div className="relative space-y-1">
-                  {currentCategory.items.map((item, index) => (
-                    <div 
-                      key={index}
-                      className="group relative py-4 px-1 border-b border-[#E8E0D5]/40 hover:bg-[#F9F6F1]/60 transition-all duration-300 rounded-xl hover:px-4 hover:shadow-sm"
-                    >
-                      <div className="flex items-center justify-between">
-                        {/* English Name */}
-                        <div className="flex-1 text-left pr-2">
-                          <h3 className="font-semibold text-[#3E2723] text-base leading-relaxed group-hover:text-[#8B4513] transition-colors duration-200">
-                            {item.name.en}
-                          </h3>
-                        </div>
-
-                        {/* Enhanced Dotted Line */}
-                        <div className="flex-1 mx-3 relative">
-                          <div className="border-b border-dotted border-[#D2B48C]/60 w-full"></div>
-                          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#F5F1EB]/80 to-transparent"></div>
-                        </div>
-
-                        {/* Enhanced Price */}
-                        <div className="text-center min-w-[80px]">
-                          <div className="inline-flex items-baseline gap-1 bg-[#F9F6F1]/80 px-3 py-1 rounded-full border border-[#E8E0D5]/50">
-                            <span className="text-[#8B4513] font-bold text-lg">
-                              {item.price ? `${item.price}` : 'سؤال'}
-                            </span>
-                            {item.price && (
-                              <span className="text-[#A0522D] text-xs font-medium uppercase tracking-wide">
-                                EGP
-                              </span>
-                            )}
-                          </div>
-                        </div>
-
-                        {/* Arabic Name */}
-                        <div className="flex-1 text-right pl-3">
-                          <h3 className="font-semibold text-[#3E2723] text-base leading-relaxed group-hover:text-[#8B4513] transition-colors duration-200 rtl" style={{ direction: 'rtl' }}>
-                            {item.name.ar}
-                          </h3>
-                        </div>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-
-                {/* Enhanced Page decoration */}
-                <div className="absolute bottom-8 left-8 right-8">
-                  <div className="h-px bg-gradient-to-r from-transparent via-[#D2B48C]/50 to-transparent"></div>
-                  <div className="flex justify-center mt-4">
-                    <div className="w-8 h-1 bg-[#D2B48C]/30 rounded-full"></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Enhanced Navigation Buttons */}
-            {currentPage > 0 && (
-              <button
-                onClick={flipToPrevPage}
-                className="absolute left-4 top-1/2 -translate-y-1/2 w-14 h-14 bg-white/98 hover:bg-white rounded-full shadow-xl border-2 border-[#E8E0D5] flex items-center justify-center transition-all duration-300 hover:scale-110 hover:shadow-2xl hover:border-[#D2B48C] group"
-                disabled={isFlipping}
-              >
-                <ChevronLeft className="w-7 h-7 text-[#8B4513] group-hover:text-[#CD853F] transition-colors" />
-              </button>
-            )}
-
-            {currentPage < totalPages - 1 && (
-              <button
-                onClick={flipToNextPage}
-                className="absolute right-4 top-1/2 -translate-y-1/2 w-14 h-14 bg-white/98 hover:bg-white rounded-full shadow-xl border-2 border-[#E8E0D5] flex items-center justify-center transition-all duration-300 hover:scale-110 hover:shadow-2xl hover:border-[#D2B48C] group"
-                disabled={isFlipping}
-              >
-                <ChevronRight className="w-7 h-7 text-[#8B4513] group-hover:text-[#CD853F] transition-colors" />
-              </button>
-            )}
-          </div>
-        </div>
-
-        {/* Enhanced Page Indicator */}
-        <div className="flex justify-center gap-3 mt-10">
-          {categories.map((_, index) => (
-            <button
-              key={index}
-              onClick={() => !isFlipping && setCurrentPage(index)}
-              className={`relative transition-all duration-400 ${
-                index === currentPage 
-                  ? 'w-8 h-3 bg-[#8B4513] rounded-full shadow-lg scale-110' 
-                  : 'w-3 h-3 bg-[#D2B48C] rounded-full hover:bg-[#CD853F] hover:scale-125 hover:shadow-md'
-              }`}
-              disabled={isFlipping}
-            >
-              {index === currentPage && (
-                <div className="absolute inset-0 bg-[#CD853F] rounded-full animate-pulse opacity-50"></div>
-              )}
-            </button>
-          ))}
-        </div>
-
-        {/* Enhanced Page Counter */}
-        <div className="text-center mt-8">
-          <div className="inline-flex items-center gap-3 bg-white/80 backdrop-blur-sm px-6 py-3 rounded-full border border-[#E8E0D5] shadow-lg">
-            <div className="flex items-center gap-2">
-              <div className="w-2 h-2 bg-[#8B4513] rounded-full"></div>
-              <p className="text-sm text-[#8B7355] font-medium">
-                Page {currentPage + 1} of {totalPages}
-              </p>
-            </div>
-            <div className="w-px h-4 bg-[#E8E0D5]"></div>
-            <div className="flex items-center gap-2">
-              <p className="text-sm text-[#8B7355] font-medium rtl" style={{ direction: 'rtl' }}>
-                صفحة {currentPage + 1} من {totalPages}
-              </p>
-              <div className="w-2 h-2 bg-[#D2B48C] rounded-full"></div>
+          <div className="flex-1 overflow-x-auto scrollbar-hide">
+            <div className="flex gap-2">
+              {menu.map((category, index) => (
+                <button
+                  key={index}
+                  onClick={() => goToCategory(index)}
+                  className={`px-3 py-1.5 rounded-full text-xs font-medium whitespace-nowrap transition-all ${
+                    currentCategory === index
+                      ? 'bg-[#8B4513] text-white shadow-md'
+                      : 'bg-white/20 text-white hover:bg-white/30'
+                  }`}
+                  style={{ direction: 'rtl' }}
+                >
+                  {category.category.ar}
+                </button>
+              ))}
             </div>
           </div>
-        </div>
-
-        {/* Ambient lighting effect */}
-        <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-1/4 left-1/4 w-32 h-32 bg-[#8B4513]/5 rounded-full blur-3xl"></div>
-          <div className="absolute bottom-1/4 right-1/4 w-24 h-24 bg-[#CD853F]/5 rounded-full blur-2xl"></div>
         </div>
       </div>
+
+      {/* Book Container */}
+      <div className="flex-1 flex flex-col justify-center items-center py-8 px-4">
+        <HTMLFlipBook
+          ref={bookRef}
+          width={550}
+          height={750}
+          size="stretch"
+          minWidth={350}
+          maxWidth={550}
+          minHeight={500}
+          maxHeight={750}
+          maxShadowOpacity={0.5}
+          showCover={true}
+          mobileScrollSupport={true}
+          startPage={0}
+          drawShadow={true}
+          flippingTime={800}
+          usePortrait={false}
+          startZIndex={0}
+          autoSize={false}
+          maxAngle={15}
+          onFlip={handleFlip}
+        >
+          {/* Cover Page */}
+          <div data-density="hard">
+            <div className="w-full h-full bg-gradient-to-br from-[#F5E6D3] to-[#E8D4B8] flex flex-col justify-center items-center text-center p-10 relative">
+              <div className="absolute top-6 left-6 w-16 h-16 border-l-2 border-t-2 border-[#8B4513]/30" />
+              <div className="absolute top-6 right-6 w-16 h-16 border-r-2 border-t-2 border-[#8B4513]/30" />
+              <div className="absolute bottom-6 left-6 w-16 h-16 border-l-2 border-b-2 border-[#8B4513]/30" />
+              <div className="absolute bottom-6 right-6 w-16 h-16 border-r-2 border-b-2 border-[#8B4513]/30" />
+              
+              <Image
+                src="/images/cover.jpg"
+                alt="Dollar Cafe"
+                width={160}
+                height={160}
+                className="object-cover rounded-full border-4 border-[#8B4513] shadow-xl mb-6"
+                priority
+              />
+              <h1 className="text-4xl font-bold text-[#5D4037] mb-3 font-serif">Dollar Café</h1>
+              <div className="w-24 h-1 bg-[#8B4513] mx-auto mb-3 rounded-full" />
+              <p className="text-[#8B4513] text-xl font-semibold mb-2">قائمة الطعام</p>
+              <p className="text-[#A0522D] text-base italic">Our Complete Menu</p>
+            </div>
+          </div>
+
+          {/* Menu Pages - كل category في صفحة واحدة مع scroll */}
+          {menu.map((category, index) => (
+            <div key={`cat-${index}`} data-density="soft">
+              <div className="w-full h-full bg-[#F5E6D3] p-8 flex flex-col relative">
+                <div className="absolute top-4 left-4 w-12 h-12 border-l-2 border-t-2 border-[#8B4513]/30" />
+                <div className="absolute top-4 right-4 w-12 h-12 border-r-2 border-t-2 border-[#8B4513]/30" />
+                <div className="absolute bottom-4 left-4 w-12 h-12 border-l-2 border-b-2 border-[#8B4513]/30" />
+                <div className="absolute bottom-4 right-4 w-12 h-12 border-r-2 border-b-2 border-[#8B4513]/30" />
+                
+                {/* Header - Fixed */}
+                <div className="mb-6 text-center flex-shrink-0">
+                  <h2 className="text-2xl font-bold text-[#5D4037] mb-2 font-serif">
+                    {category.category.en}
+                  </h2>
+                  <div className="w-20 h-0.5 bg-[#8B4513] mx-auto mb-2" />
+                  <h3 className="text-lg text-[#8B4513] font-semibold" style={{ direction: 'rtl' }}>
+                    {category.category.ar}
+                  </h3>
+                </div>
+                
+                {/* Items - Scrollable */}
+                <div className="flex-1 overflow-y-auto pr-2 custom-scrollbar">
+                  <div className="flex flex-col gap-3">
+                    {category.items.map((item: any, i: number) => (
+                      <div
+                        key={i}
+                        className="flex items-start gap-2 border-b border-[#8B4513]/20 pb-3 hover:bg-[#8B4513]/5 rounded px-2 transition-colors"
+                      >
+                        <span className="text-[#5D4037] font-medium text-xs flex-1 leading-relaxed break-words">
+                          {item.name.en}
+                        </span>
+                        <span className="border-b border-dotted border-[#8B4513]/40 w-6 flex-shrink-0 mt-2" />
+                        <span className="text-[#8B4513] font-bold text-sm whitespace-nowrap flex-shrink-0">
+                          {item.price}ج
+                        </span>
+                        <span className="border-b border-dotted border-[#8B4513]/40 w-6 flex-shrink-0 mt-2" />
+                        <span className="text-[#5D4037] font-medium text-xs flex-1 text-right leading-relaxed break-words" style={{ direction: 'rtl' }}>
+                          {item.name.ar}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+                
+                {/* Footer - Fixed */}
+                <div className="text-center mt-4 pt-3 border-t border-[#8B4513]/20 flex-shrink-0">
+                  <span className="text-[#8B4513]/60 text-sm">{index + 1}</span>
+                </div>
+              </div>
+            </div>
+          ))}
+
+          {/* Back Cover */}
+          <div data-density="hard">
+            <div className="w-full h-full bg-gradient-to-br from-[#F5E6D3] to-[#E8D4B8] flex flex-col justify-center items-center text-center p-10 relative">
+              <div className="absolute top-6 left-6 w-16 h-16 border-l-2 border-t-2 border-[#8B4513]/30" />
+              <div className="absolute top-6 right-6 w-16 h-16 border-r-2 border-t-2 border-[#8B4513]/30" />
+              <div className="absolute bottom-6 left-6 w-16 h-16 border-l-2 border-b-2 border-[#8B4513]/30" />
+              <div className="absolute bottom-6 right-6 w-16 h-16 border-r-2 border-b-2 border-[#8B4513]/30" />
+              
+              <div className="w-20 h-20 bg-gradient-to-br from-[#8B4513] to-[#A0522D] rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
+                <span className="text-4xl">☕</span>
+              </div>
+              
+              <h3 className="text-3xl font-bold text-[#5D4037] mb-3 font-serif">Thank You!</h3>
+              <div className="w-20 h-0.5 bg-[#8B4513] mx-auto mb-3 rounded-full" />
+              <h4 className="text-2xl font-semibold text-[#8B4513] mb-6" style={{ direction: 'rtl' }}>شكراً لزيارتكم</h4>
+              
+              <div className="mb-5 flex items-center gap-2 text-[#5D4037]">
+                <MapPin className="w-5 h-5 text-[#8B4513]" />
+                <p className="text-sm font-medium">Cairo, Egypt</p>
+              </div>
+              
+              <div className="mb-4">
+                <p className="text-[#A0522D] text-sm mb-3">تابعونا على • Follow us</p>
+                <div className="flex justify-center gap-4">
+                  <a
+                    href="https://facebook.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-11 h-11 bg-[#8B4513] hover:bg-[#A0522D] rounded-full flex items-center justify-center transition-colors shadow-md"
+                  >
+                    <Facebook className="w-5 h-5 text-white fill-current" />
+                  </a>
+                  <a
+                    href="https://instagram.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-11 h-11 bg-[#8B4513] hover:bg-[#A0522D] rounded-full flex items-center justify-center transition-colors shadow-md"
+                  >
+                    <Instagram className="w-5 h-5 text-white" />
+                  </a>
+                  <a
+                    href="https://wa.me/201234567890"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-11 h-11 bg-[#8B4513] hover:bg-[#A0522D] rounded-full flex items-center justify-center transition-colors shadow-md"
+                  >
+                    <Phone className="w-5 h-5 text-white" />
+                  </a>
+                </div>
+              </div>
+              
+              <div className="flex justify-center gap-2 mt-4">
+                <div className="w-2.5 h-2.5 bg-[#8B4513] rounded-full animate-pulse" />
+                <div className="w-2.5 h-2.5 bg-[#A0522D] rounded-full animate-pulse" style={{ animationDelay: '0.2s' }} />
+                <div className="w-2.5 h-2.5 bg-[#8B4513] rounded-full animate-pulse" style={{ animationDelay: '0.4s' }} />
+              </div>
+            </div>
+          </div>
+        </HTMLFlipBook>
+
+        <div className="mt-6 text-center">
+          <p className="text-[#5D4037] text-sm bg-white/80 px-6 py-3 rounded-full shadow-md inline-block">
+            اضغط على الصفحة أو اسحب للتقليب • Click or swipe to flip
+          </p>
+        </div>
+      </div>
+
+      <style jsx global>{`
+        .scrollbar-hide::-webkit-scrollbar { display: none; }
+        .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+        
+        .custom-scrollbar::-webkit-scrollbar {
+          width: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+          background: #F5E6D3;
+          border-radius: 3px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+          background: #8B4513;
+          border-radius: 3px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+          background: #A0522D;
+        }
+      `}</style>
     </div>
   );
 }
