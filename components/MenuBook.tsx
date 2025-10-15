@@ -108,8 +108,14 @@ export default function MenuBook() {
           usePortrait={false}
           startZIndex={0}
           autoSize={false}
-          maxAngle={15}
           onFlip={handleFlip}
+          className=""
+          style={{}}
+          clickEventForward={true}
+          useMouseEvents={true}
+          swipeDistance={30}
+          showPageCorners={true}
+          disableFlipByClick={false}
         >
           {/* Cover Page */}
           <div data-density="hard">
