@@ -44,57 +44,57 @@
 
 :root {
   --radius: 0.75rem;
-  /* Coffee Theme - Light Mode */
-  --background: #F5F3F0; /* Warm cream background */
-  --foreground: #2D1810; /* Dark coffee brown text */
-  --card: #EFEBE6; /* Light beige for cards */
-  --card-foreground: #2D1810; /* Dark brown for card text */
-  --popover: #EFEBE6;
-  --popover-foreground: #2D1810;
+  /* Coffee Brown & Vanilla Latte Theme - Light Mode */
+  --background: #F5F1EB; /* Warm vanilla cream background */
+  --foreground: #3E2723; /* Dark coffee brown text */
+  --card: #FFFFFF; /* Pure white for cards */
+  --card-foreground: #3E2723; /* Dark brown for card text */
+  --popover: #FFFFFF;
+  --popover-foreground: #3E2723;
   --primary: #8B4513; /* Rich coffee brown */
-  --primary-foreground: #F5F3F0;
-  --secondary: #D2B48C; /* Warm tan */
-  --secondary-foreground: #2D1810;
-  --muted: #E6DDD4; /* Soft beige */
-  --muted-foreground: #5D4037; /* Medium brown */
-  --accent: #CD853F; /* Peru/bronze accent */
-  --accent-foreground: #F5F3F0;
-  --destructive: #D2691E; /* Chocolate orange for warnings */
-  --border: #D7CFC4; /* Light brown border */
-  --input: #E6DDD4;
+  --primary-foreground: #F5F1EB;
+  --secondary: #D2B48C; /* Warm tan/latte */
+  --secondary-foreground: #3E2723;
+  --muted: #F9F6F1; /* Very light beige */
+  --muted-foreground: #8B7355; /* Medium brown */
+  --accent: #CD853F; /* Peru/caramel accent */
+  --accent-foreground: #FFFFFF;
+  --destructive: #D84315; /* Coffee orange for warnings */
+  --border: #E8E0D5; /* Light brown border */
+  --input: #F9F6F1;
   --ring: #8B4513;
   --chart-1: #8B4513;
   --chart-2: #CD853F;
   --chart-3: #D2B48C;
   --chart-4: #DEB887;
   --chart-5: #F4A460;
-  --sidebar: #E6DDD4;
-  --sidebar-foreground: #2D1810;
+  --sidebar: #F9F6F1;
+  --sidebar-foreground: #3E2723;
   --sidebar-primary: #8B4513;
-  --sidebar-primary-foreground: #F5F3F0;
+  --sidebar-primary-foreground: #F5F1EB;
   --sidebar-accent: #CD853F;
-  --sidebar-accent-foreground: #F5F3F0;
-  --sidebar-border: #D7CFC4;
+  --sidebar-accent-foreground: #FFFFFF;
+  --sidebar-border: #E8E0D5;
   --sidebar-ring: #8B4513;
 }
 
 [data-theme="dark"] {
   /* Coffee Theme - Dark Mode */
   --background: #1A0F0A; /* Very dark coffee */
-  --foreground: #F5F3F0; /* Light cream text */
+  --foreground: #F5F1EB; /* Light cream text */
   --card: #2D1810; /* Dark brown cards */
-  --card-foreground: #E6DDD4; /* Light beige text on cards */
+  --card-foreground: #E8E0D5; /* Light beige text on cards */
   --popover: #2D1810;
-  --popover-foreground: #F5F3F0;
+  --popover-foreground: #F5F1EB;
   --primary: #CD853F; /* Lighter brown for primary in dark */
   --primary-foreground: #1A0F0A;
   --secondary: #5D4037; /* Medium brown */
-  --secondary-foreground: #F5F3F0;
+  --secondary-foreground: #F5F1EB;
   --muted: #3E2723; /* Dark muted brown */
   --muted-foreground: #BCAAA4; /* Light brown text */
   --accent: #D2B48C; /* Tan accent */
   --accent-foreground: #1A0F0A;
-  --destructive: #FF6F00; /* Brighter orange for dark mode */
+  --destructive: #FF7043; /* Brighter orange for dark mode */
   --border: #4E342E; /* Dark border */
   --input: #3E2723;
   --ring: #CD853F;
@@ -104,7 +104,7 @@
   --chart-4: #DEB887;
   --chart-5: #FFE4B5;
   --sidebar: #2D1810;
-  --sidebar-foreground: #F5F3F0;
+  --sidebar-foreground: #F5F1EB;
   --sidebar-primary: #CD853F;
   --sidebar-primary-foreground: #1A0F0A;
   --sidebar-accent: #D2B48C;
@@ -133,11 +133,17 @@
   background-clip: text;
 }
 
-/* Page Flip Animation Enhancement */
-.page-flip-shadow {
+/* Page Transition Effects */
+.page-transition {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Enhanced Shadow for Menu Book */
+.menu-book-shadow {
   box-shadow: 
-    0 4px 8px rgba(45, 24, 16, 0.1),
-    0 8px 32px rgba(45, 24, 16, 0.08);
+    0 10px 25px rgba(59, 39, 35, 0.15),
+    0 20px 48px rgba(59, 39, 35, 0.1),
+    0 1px 4px rgba(59, 39, 35, 0.1);
 }
 
 @layer base {
@@ -155,12 +161,36 @@
 }
 
 /* Arabic Text Support */
-.rtl-text {
+.rtl {
   direction: rtl;
   text-align: right;
 }
 
-.ltr-text {
+.ltr {
   direction: ltr;
   text-align: left;
+}
+
+/* Smooth transitions for interactive elements */
+.smooth-transition {
+  transition: all 0.2s ease-in-out;
+}
+
+/* Custom scrollbar for webkit browsers */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: #F9F6F1;
+  border-radius: 3px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #D2B48C;
+  border-radius: 3px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #CD853F;
 }

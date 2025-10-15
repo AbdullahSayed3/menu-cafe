@@ -26,14 +26,14 @@ export default function ThemeToggle() {
 
   if (!mounted) {
     return (
-      <div className="w-14 h-8 bg-muted rounded-full animate-pulse"></div>
+      <div className="w-14 h-8 bg-[#F9F6F1] rounded-full animate-pulse border border-[#E8E0D5]"></div>
     );
   }
 
   return (
     <button
       onClick={toggleTheme}
-      className="relative inline-flex items-center w-14 h-8 bg-gradient-to-r from-primary/20 to-accent/20 rounded-full border-2 border-primary/30 transition-all duration-500 hover:scale-105 focus:outline-none focus:ring-4 focus:ring-primary/20"
+      className="relative inline-flex items-center w-14 h-8 bg-gradient-to-r from-[#8B4513]/20 to-[#CD853F]/20 rounded-full border-2 border-[#8B4513]/30 transition-all duration-500 hover:scale-105 focus:outline-none focus:ring-4 focus:ring-[#8B4513]/20"
       aria-label={`Switch to ${isDark ? 'light' : 'dark'} mode`}
     >
       {/* Track */}
@@ -41,7 +41,7 @@ export default function ThemeToggle() {
       
       {/* Slider */}
       <div
-        className={`relative z-10 flex items-center justify-center w-6 h-6 rounded-full bg-gradient-to-r from-primary to-accent shadow-lg transform transition-all duration-500 ${
+        className={`relative z-10 flex items-center justify-center w-6 h-6 rounded-full bg-gradient-to-r from-[#8B4513] to-[#CD853F] shadow-lg transform transition-all duration-500 ${
           isDark ? 'translate-x-6' : 'translate-x-1'
         }`}
       >
@@ -54,15 +54,15 @@ export default function ThemeToggle() {
       
       {/* Background Icons */}
       <Coffee 
-        className={`absolute left-2 w-3 h-3 text-primary/60 transition-opacity duration-300 ${
+        className={`absolute left-2 w-3 h-3 text-[#8B4513]/60 transition-opacity duration-300 ${
           isDark ? 'opacity-30' : 'opacity-60'
         }`} 
       />
       <Moon 
-        className={`absolute right-2 w-3 h-3 text-accent/60 transition-opacity duration-300 ${
+        className={`absolute right-2 w-3 h-3 text-[#CD853F]/60 transition-opacity duration-300 ${
           isDark ? 'opacity-60' : 'opacity-30'
         }`} 
       />
     </button>
   );
-} 
+}
